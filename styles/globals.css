@@ -5,8 +5,12 @@
 @layer base {
 	html {
 		scroll-behavior: smooth;
-	}
 
+	}
+	body{
+		background: #F0EFF4!important;
+		color: #232323!important;
+	}
 	html,
 	body {
 		@apply h-full;
@@ -17,7 +21,7 @@
 	}
 
 	#__next {
-		@apply isolate flex min-h-full flex-col bg-primary slashed-zero text-white;
+		@apply isolate flex min-h-full flex-col slashed-zero;
 	}
 
 	#__next > * {

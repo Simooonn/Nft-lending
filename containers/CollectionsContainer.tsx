@@ -84,7 +84,7 @@ const CollectionsContainer = ({ chainId, chainName }: ICollectionContainerProps)
 	return (
 		<>
 			<Head>
-				<title>Borrow - LlamaLend</title>
+				<title>Borrow - ProTradex</title>
 			</Head>
 
 			<Layout>

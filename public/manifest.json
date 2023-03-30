@@ -1,6 +1,6 @@
 {
-	"name": "LlamaLend",
-	"short_name": "LlamaLend",
+	"name": "ProTradex",
+	"short_name": "ProTradex",
   "description": "NFT-collateralized loans for long tail markets.",
 	"icons": [
 		{ "src": "/favicon/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },

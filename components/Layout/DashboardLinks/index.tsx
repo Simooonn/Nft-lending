@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { cx } from 'cva'
 import Image from 'next/image'
+import styles from '~/styles/layout.module.css';
 
 function AppLink({ name, path }: { name: string; path: string }) {
 	const { pathname } = useRouter()
@@ -36,7 +37,7 @@ export function DashboardLinks() {
 				className="mr-auto flex items-center gap-[6px] rounded-xl bg-white px-2 py-2 text-black lg:hidden"
 			>
 				<span className="sr-only">Dashboards</span>
-				<Image src="/assets/gib.png" alt="" className="block" height={24} width={24} priority />
+				<Image src="/assets/pro-logo1.png" alt="" className="block" height={24} width={24} priority />
 				<svg fill="none" height="7" width="14" xmlns="http://www.w3.org/2000/svg">
 					<path
 						d="M12.75 1.54001L8.51647 5.0038C7.77974 5.60658 6.72026 5.60658 5.98352 5.0038L1.75 1.54001"
@@ -66,7 +67,7 @@ export function DashboardLinks() {
 
 				<MenuItem as="span" className="flex">
 					<Link href="/create" className="w-full px-4 py-2 hover:bg-gray-100">
-						Create Pool
+						Create Pool2
 					</Link>
 				</MenuItem>
 
@@ -78,7 +79,7 @@ export function DashboardLinks() {
 			</AriaMenu>
 
 			<nav className="mr-auto hidden w-full items-center gap-3 rounded-xl bg-white p-1 text-base font-semibold text-black sm:w-auto lg:flex">
-				<Image src="/assets/gib.png" alt="" className="hidden sm:block" height={24} width={24} priority />
+				<Image src="/assets/pro-logo1.png" alt="" className={"hidden sm:block " + styles.headerLogo} height={100} width={217} priority />
 				<AppLink name="Borrow" path="/" />
 				<AppLink name="Repay" path="/repay" />
 				<AppLink name="Create Pool" path="/create" />

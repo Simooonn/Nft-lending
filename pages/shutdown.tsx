@@ -14,7 +14,7 @@ const ManagePools: NextPage = () => {
 	return (
 		<>
 			<Head>
-				<title>Shutdown Pools - LlamaLend</title>
+				<title>Shutdown Pools - ProTradex</title>
 			</Head>
 
 			<Layout>

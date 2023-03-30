@@ -153,7 +153,7 @@ const BorrowContainer = ({ chainId, chainName, collectionAddress }: IPoolsContai
 	return (
 		<>
 			<Head>
-				<title>Borrow - LlamaLend</title>
+				<title>Borrow - ProTradex</title>
 			</Head>
 
 			<Layout>

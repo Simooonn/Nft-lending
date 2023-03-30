@@ -91,7 +91,7 @@ const Aggregator: NextPage<IPageProps> = ({ collections }) => {
 	return (
 		<>
 			<Head>
-				<title>Aggregator - LlamaLend</title>
+				<title>Aggregator - ProTradex</title>
 			</Head>
 
 			<Layout className="pb-20">

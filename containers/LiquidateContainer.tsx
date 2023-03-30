@@ -25,7 +25,7 @@ export default function LiquidateContainer({ chainId, chainName, userAddress }: 
 	return (
 		<>
 			<Head>
-				<title>Liquidate - LlamaLend</title>
+				<title>Liquidate - ProTradex</title>
 			</Head>
 
 			<Layout>

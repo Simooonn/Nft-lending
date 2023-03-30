@@ -81,7 +81,7 @@ export function BorrowCollectionItemList({ data, chainName, chainId }: IBorrowCo
 					href={`/collections/${chainName}/${data.address}`}
 					className="w-full min-w-[100px] rounded-xl bg-[#243b55] p-2 text-center text-sm"
 				>
-					View Pools
+					View Pools2
 				</Link>
 			</div>
 		</li>
@@ -111,7 +111,7 @@ export function BorrowCollectionItemCard({ data, chainName }: IBorrowCollectionI
 				href={`/collections/${chainName}/${data.address}`}
 				className="mt-auto rounded-xl bg-[#243b55] p-2 text-center text-sm"
 			>
-				View Pools
+				View Pools1
 			</Link>
 		</li>
 	)

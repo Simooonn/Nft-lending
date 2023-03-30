@@ -41,7 +41,7 @@ export default function LoanPoolsContainer({ chainId, chainName, userAddress }: 
 	return (
 		<>
 			<Head>
-				<title>Repay - LlamaLend</title>
+				<title>Repay - ProTradex</title>
 			</Head>
 
 			<Layout>

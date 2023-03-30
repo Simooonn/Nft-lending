@@ -19,7 +19,7 @@ export default function LenderStatsContainer({ chainId, chainName, lenderAddress
 	return (
 		<>
 			<Head>
-				<title>Lender - LlamaLend</title>
+				<title>Lender - ProTradex</title>
 			</Head>
 
 			<Layout>

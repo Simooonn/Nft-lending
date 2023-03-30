@@ -13,8 +13,8 @@ export const LlamalendPools = ({ pools }: { pools: Array<ILlamaLendQuote> }) => 
 		<div>
 			<div className="relative flex min-h-[2.625rem] items-center justify-between gap-2 rounded-t-xl border border-b-0 border-[#252525] bg-[#111111] py-2 px-4">
 				<div className="flex items-center gap-1">
-					<Image src="/assets/gib.png" alt="" className="block" height={20} width={20} />
-					<h1>LlamaLend</h1>
+					<Image src="/assets/pro-logo1.png" alt="" className="block" height={20} width={20} />
+					<h1>ProTradex</h1>
 					<Tooltip content="Pay for time borrowed">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6">
 							<path

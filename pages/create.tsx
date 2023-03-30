@@ -110,7 +110,7 @@ const ManagePools: NextPage = () => {
 	return (
 		<div>
 			<Head>
-				<title>Manage Pools - LlamaLend</title>
+				<title>Manage Pools - ProTradex</title>
 			</Head>
 
 			<Layout>
