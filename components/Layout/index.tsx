@@ -31,9 +31,9 @@ export default function Layout({ children, className, ...props }: ILayoutProps) 
 				<ConnectButton />
 
 				<span className="flex items-center justify-end gap-3 max-[445px]:ml-auto">
-					<Notifications />
-					<CartLink />
-					<Menu />
+					{/*<Notifications />*/}
+					{/*<CartLink />*/}
+					{/*<Menu />*/}
 				</span>
 			</header>
 

@@ -45,43 +45,43 @@ export function BorrowCollectionItemList({ data, chainName, chainId }: IBorrowCo
 
 				<div className="hidden md:block">
 					<h1 className="font-semibold">{data.name}</h1>
-					<p className="text-sm text-[#D4D4D8]">Collection</p>
+					<p className="text-sm text-[#585858]">Collection</p>
 				</div>
 			</div>
 
 			<div className="block md:hidden">
 				<h1 className="font-semibold">{data.name}</h1>
-				<p className="text-sm text-[#D4D4D8]">Collection</p>
+				<p className="text-sm text-[#585858]">Collection</p>
 			</div>
 
 			<div className="flex flex-col justify-center">
 				<h1 className="min-h-[1.5rem]">{floorPrice ? `${floorPrice} ${chainSymbol}` : ''}</h1>
-				<p className="text-sm text-[#D4D4D8]">Floor</p>
+				<p className="text-sm text-[#585858]">Floor</p>
 			</div>
 
 			<div className="flex flex-col justify-center">
 				<h1 className="min-h-[1.5rem]">{poolsMaxApr ? `${poolsMaxApr.toFixed(2)}%` : ''}</h1>
-				<p className="text-sm text-[#D4D4D8]">APR up to</p>
+				<p className="text-sm text-[#585858]">APR up to</p>
 			</div>
 
 			<div className="flex flex-col justify-center">
 				<h1 className="min-h-[1.5rem]">
 					{poolsTotalAvailableBalance && `${poolsTotalAvailableBalance.toFixed(2)} ${chainSymbol}`}
 				</h1>
-				<p className="text-sm text-[#D4D4D8]">Available</p>
+				<p className="text-sm text-[#5AC16C]">Available</p>
 			</div>
 
 			<div className="flex flex-col justify-center">
 				<h1 className="min-h-[1.5rem]">{pools?.length}</h1>
-				<p className="text-sm text-[#D4D4D8]">Loans</p>
+				<p className="text-sm text-[#585858]">Loans</p>
 			</div>
 
 			<div className="col-span-3 mx-auto flex w-full flex-col justify-center md:col-span-1 md:mr-0">
 				<Link
 					href={`/collections/${chainName}/${data.address}`}
-					className="w-full min-w-[100px] rounded-xl bg-[#243b55] p-2 text-center text-sm"
+					className="w-full min-w-[100px] rounded-xl bg-[#29337D] p-2 text-center text-sm text-[#ffffff]"
 				>
-					View Pools2
+					View Pools
 				</Link>
 			</div>
 		</li>

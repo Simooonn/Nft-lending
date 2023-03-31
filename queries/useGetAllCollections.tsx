@@ -8,9 +8,7 @@ import { getNftTokenList } from './useGetNftTokenList'
 import { NFT_LIST_URL_PREFIX } from '~/lib/constants'
 
 export async function getAllCollections({ chainId }: { chainId?: number | null }) {
-	console.log('chainId',chainId);
 	const pools = await getAllPoolsNameAndDeposits({ chainId })
-	console.log('aa');
 
 	const collections: Array<{ address: string; name: string; totalDeposited: string }> = []
 
