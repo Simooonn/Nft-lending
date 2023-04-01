@@ -101,7 +101,7 @@ function MyApp({ Component, pageProps }: AppProps<{ dehydratedState: DehydratedS
 				</WagmiConfig>
 			</Hydrate>
 
-			<ReactQueryDevtools initialIsOpen={false} />
+			{/*<ReactQueryDevtools initialIsOpen={false} />*/}
 		</QueryClientProvider>
 	)
 }
