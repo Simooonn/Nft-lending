@@ -17,7 +17,7 @@ export const BuySlider = ({
 	onValueCommit: (value: Array<number>) => void
 }) => {
 	const [min, max] = range
-	const [value, setValue] = useState([0])
+	const [value, setValue] = useState([2])
 
 	const step = Number(
 		((max - min) / 5).toLocaleString('en-US', {
@@ -47,7 +47,7 @@ export const BuySlider = ({
 				<RadixSlider.Track className="relative h-2 w-full rounded-[30px] bg-[#C3DAFF]">
 					<RadixSlider.Range className="absolute h-full rounded-full bg-[#627EEA]" />
 				</RadixSlider.Track>
-				<RadixSlider.Thumb className="relative block h-3 w-3 rounded-full border-2 border-white bg-[#627EEA]">
+				<RadixSlider.Thumb className="relative block h-3 w-3 cursor-pointer rounded-full border-2 border-white bg-[#627EEA]">
 					<span className="absolute -top-6 -left-1 whitespace-nowrap bg-primary px-[2px] text-xs text-white">{`${value[0]} ${symbol}`}</span>
 				</RadixSlider.Thumb>
 			</RadixSlider.Root>

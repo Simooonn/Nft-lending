@@ -3,13 +3,39 @@ import Head from 'next/head'
 // import BigNumber from 'bignumber.js'
 import Layout from '~/components/Layout'
 import { Dialog, DialogHeading, useDialogState } from 'ariakit/dialog'
+import { Select, SelectArrow, SelectItem, SelectLabel, SelectPopover, useSelectState } from 'ariakit/select'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { BuySlider } from '~/components/Form/BuySlider'
 
+const address = [
+	{ name: '#475569', img: './assets/img/image1.png' },
+	{ name: 'Cool Cats NFT', img: './assets/img/image2.png' },
+	{ name: 'NFT Worlds', img: './assets/img/image3.png' }
+]
+
+function renderValue(address: any) {
+	const image = address.img
+	return (
+		<>
+			<img key={image} src={image} alt="" aria-hidden className="photo" />
+			<div className="value">
+				<div className="name">{address.name}</div>
+			</div>
+		</>
+	)
+}
+
 export default function BuyContainer() {
 	const router = useRouter()
 	const { cart, ...queries } = router.query
+
+	const select = useSelectState({
+		defaultValue: '#475569',
+		setValueOnMove: true,
+		sameWidth: true,
+		gutter: 4
+	})
 
 	const data = [
 		{ id: 1, lender: '0PX3208883d10191', available: '28 / 80 ETH', interest: '1%' },
@@ -31,10 +57,11 @@ export default function BuyContainer() {
 	let isLoading = false
 	const isOpen = typeof cart === 'string' && cart === 'true'
 
-	let poolsInterestRange = [0, 5]
+	let poolsInterestRange = [2, 5]
 	const [interestRange, setInterestRange] = useState<Array<number> | null>(null)
 	const onInterestRateChange = (value: Array<number>) => {
 		setInterestRange(value)
+		console.log(value, '666')
 	}
 
 	const dialog = useDialogState({
@@ -165,8 +192,34 @@ export default function BuyContainer() {
 						</svg>
 					</Link>
 					<div className="p-8 text-black">
-						<div>NFT Address</div>
-						<div>select</div>
+						<div>
+							<SelectLabel state={select}>NFT Address</SelectLabel>
+							<Select
+								state={select}
+								className="flex w-full flex-nowrap items-center gap-2 rounded-md bg-[#EFF6FF] px-4 py-2"
+							>
+								{/* <img src={select.value} alt="" aria-hidden className="h-5 w-5 rounded-full" /> */}
+
+								<span className="mr-auto overflow-hidden text-ellipsis whitespace-nowrap">{select.value}</span>
+								<SelectArrow />
+							</Select>
+							<SelectPopover
+								state={select}
+								composite={false}
+								className="z-50 flex max-h-[min(var(--popover-available-height,300px),300px)] flex-col overflow-auto overscroll-contain rounded-md bg-[#F1F1F1] pb-2"
+							>
+								{address.map((collection) => (
+									<SelectItem
+										key={collection.name}
+										value={collection.name}
+										className="flex cursor-pointer scroll-m-2 flex-nowrap items-center gap-2 px-4 py-2	data-[active-item]:bg-gray-600 data-[active-item]:bg-opacity-20"
+									>
+										<img src={collection.img} alt="" aria-hidden className="h-5 w-5 rounded-full" />
+										<span className="overflow-hidden text-ellipsis whitespace-nowrap">{collection.name}</span>
+									</SelectItem>
+								))}
+							</SelectPopover>
+						</div>
 						<div>Leverage</div>
 						<div>
 							<BuySlider
@@ -196,7 +249,7 @@ export default function BuyContainer() {
 							style={{ margin: '20px auto 0' }}
 							className="cus-button ml-auto flex h-4 min-w-[10rem] items-center justify-center gap-1 rounded-lg border border-[#243b55] bg-[#29337D] p-4 text-sm text-white hover:opacity-90 active:opacity-80 disabled:cursor-not-allowed disabled:text-opacity-50"
 							onClick={() => {
-								router.push({ pathname: router.pathname, query: { ...router.query, cart: true } }, undefined, {
+								router.push({ pathname: router.pathname }, undefined, {
 									shallow: true
 								})
 							}}
