@@ -9,7 +9,7 @@ import Link from 'next/link'
 import { BuySlider } from '~/components/Form/BuySlider'
 
 const address = [
-	{ name: '#475569', img: './assets/img/image1.png', marketingPrice: 120 },
+	{ name: 'Little Wild Cat NFT', img: './assets/img/image1.png', marketingPrice: 120 },
 	{ name: 'Cool Cats NFT', img: './assets/img/image2.png', marketingPrice: 90 },
 	{ name: 'NFT Worlds', img: './assets/img/image3.png', marketingPrice: 130 }
 ]
@@ -19,7 +19,7 @@ export default function BuyContainer() {
 	const { cart, ...queries } = router.query
 
 	const select = useSelectState({
-		defaultValue: '#475569',
+		defaultValue: 'Little Wild Cat NFT',
 		setValueOnMove: true,
 		sameWidth: true,
 		gutter: 4
@@ -28,10 +28,10 @@ export default function BuyContainer() {
 	const [confirm, setConfirm] = useState<boolean>(false)
 
 	const data = [
-		{ id: 1, lender: '#475569', available: 28, total: 80, price: 32.4, img: './assets/img/image1.png' },
+		{ id: 1, lender: 'Little Wild Cat NFT', available: 28, total: 80, price: 32.4, img: './assets/img/image1.png' },
 		{ id: 2, lender: 'Cool Cats NFT', available: 58, total: 80, price: 320.1, img: './assets/img/image2.png' },
 		{ id: 3, lender: 'NFT Worlds', available: 6, total: 80, price: 150.99, img: './assets/img/image3.png' },
-		{ id: 4, lender: '0PX3208883d10766', available: 15, total: 80, price: 32.4, img: './assets/img/image1.png' }
+		{ id: 4, lender: 'Alpaca NFT', available: 15, total: 80, price: 32.4, img: './assets/img/image4.png' }
 	]
 
 	let isLoading = false

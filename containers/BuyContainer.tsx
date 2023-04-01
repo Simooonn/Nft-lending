@@ -9,7 +9,7 @@ import Link from 'next/link'
 import { BuySlider } from '~/components/Form/BuySlider'
 
 const address = [
-	{ name: '#475569', img: './assets/img/image1.png', marketingPrice: 120 },
+	{ name: 'Little Wild Cat NFT', img: './assets/img/image1.png', marketingPrice: 120 },
 	{ name: 'Cool Cats NFT', img: './assets/img/image2.png', marketingPrice: 90 },
 	{ name: 'NFT Worlds', img: './assets/img/image3.png', marketingPrice: 130 }
 ]
@@ -28,10 +28,10 @@ export default function BuyContainer() {
 	const [confirm, setConfirm] = useState<boolean>(false)
 
 	const data = [
-		{ id: 1, lender: '0PX3208883d10191', available: 28, total: 80 },
-		{ id: 2, lender: '0PX3208883d10079', available: 58, total: 80 },
-		{ id: 3, lender: '0PX3208883d17968', available: 6, total: 80 },
-		{ id: 4, lender: '0PX3208883d10766', available: 15, total: 80 }
+		{ id: 1, lender: '0x1dEAb5c9afF568598f961AEe0ef9fD703F78d251', available: 28, total: 80 },
+		{ id: 2, lender: '0x94819fe6b76a676Eaaea21a62E386cD09D13D24d', available: 58, total: 80 },
+		{ id: 3, lender: '0x3B66D1817eF923E03950053e917284AF22484F60', available: 6, total: 80 },
+		{ id: 4, lender: '0x95222290dd7278aa3ddd389cc1e1d165cc4bafe5', available: 15, total: 80 }
 	]
 
 	let isLoading = false
@@ -146,7 +146,7 @@ export default function BuyContainer() {
 														)
 													}}
 												>
-													Borrow
+													Buy
 												</button>
 											</td>
 										</tr>
