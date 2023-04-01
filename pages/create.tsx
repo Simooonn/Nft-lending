@@ -227,7 +227,7 @@ const ManagePools: NextPage = () => {
 						</button>
 					) : (
 						<button
-							className="rounded-lg bg-[#29337D] p-2 text-white disabled:cursor-not-allowed"
+							className="rounded-lg bg-[#3B82F6] p-2 text-white disabled:cursor-not-allowed"
 							disabled={isLoading || !isConnected || chain?.unsupported || isInvalidInterests || !supportsInterface}
 						>
 							{isLoading ? <BeatLoader color="white" /> : 'Create'}

@@ -250,6 +250,8 @@ export default function LoanPoolsContainer({ chainId, chainName, userAddress }: 
 														</button>
 													)}
 												</td>
+												<td className="whitespace-nowrap border border-[#252525] px-4 py-2">
+												</td>
 											</tr>
 										))}
 									</>
