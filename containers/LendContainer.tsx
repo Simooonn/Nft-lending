@@ -135,7 +135,7 @@ export default function BuyContainer() {
 											<td className="whitespace-nowrap px-4 py-2">
 												<button
 													style={{ margin: '0 auto' }}
-													className="cus-button ml-auto flex h-4 min-w-[10rem] items-center justify-center gap-1 rounded-lg border border-[#243b55] bg-[#29337D] p-4 text-sm text-white hover:opacity-90 active:opacity-80 disabled:cursor-not-allowed disabled:text-opacity-50"
+													className="cus-button ml-auto flex h-4 min-w-[10rem] items-center justify-center gap-1 rounded-lg bg-[#3B82F6] p-4 text-sm text-white hover:opacity-90 active:opacity-80 disabled:cursor-not-allowed disabled:text-opacity-50"
 													onClick={() => {
 														setLiquidation(marketingPrice * 0.6)
 														setRequired(marketingPrice * (1 / 2))
