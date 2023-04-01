@@ -84,7 +84,8 @@ export function useGetNftsList({
 				nftContractAddress
 			}),
 		{
-			refetchInterval: 60 * 100
+			retry:false,
+			// refetchInterval: 60 * 100
 		}
 	)
 }

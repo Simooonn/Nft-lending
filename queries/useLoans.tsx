@@ -180,7 +180,8 @@ export function useGetLoans({
 				chainId
 			}),
 		{
-			refetchInterval: 30_000
+			retry:false,
+			// refetchInterval: 30_000
 		}
 	)
 }
@@ -264,7 +265,8 @@ export function useGetLoansToLiquidate({
 		['loansToLiquidate', chainId, liquidatorAddress],
 		() => getLoansToLiquidate({ liquidatorAddress, chainId }),
 		{
-			refetchInterval: 30_000
+			retry:false,
+			// refetchInterval: 30_000
 		}
 	)
 }

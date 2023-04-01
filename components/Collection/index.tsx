@@ -79,7 +79,7 @@ export function BorrowCollectionItemList({ data, chainName, chainId }: IBorrowCo
 			<div className="col-span-3 mx-auto flex w-full flex-col justify-center md:col-span-1 md:mr-0">
 				<Link
 					href={`/collections/${chainName}/${data.address}`}
-					className="w-full min-w-[100px] rounded-xl bg-[#29337D] p-2 text-center text-sm text-[#ffffff]"
+					className="w-full min-w-[100px] rounded-xl bg-[#3B82F6] p-2 text-center text-sm text-[#ffffff]"
 				>
 					View Pools
 				</Link>
@@ -109,9 +109,9 @@ export function BorrowCollectionItemCard({ data, chainName }: IBorrowCollectionI
 
 			<Link
 				href={`/collections/${chainName}/${data.address}`}
-				className="mt-auto rounded-xl bg-[#29337D] p-2 text-center text-sm"
+				className="mt-auto rounded-xl bg-[#3B82F6] p-2 text-center text-sm"
 			>
-				View Pools1
+				View Pools
 			</Link>
 		</li>
 	)

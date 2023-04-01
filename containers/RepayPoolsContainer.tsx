@@ -62,38 +62,38 @@ export default function LoanPoolsContainer({ chainId, chainName, userAddress }: 
 						to borrow {chainSymbol}.
 					</p>
 				) : (
-					<div className="relative mx-auto mt-8 mb-auto w-full overflow-x-auto rounded-xl sm:my-9">
-						<table className="mx-auto w-full table-auto border-collapse rounded-xl bg-[#010101] text-base">
-							<thead className="bg-[#111111]">
+					<div className="relative mx-auto mt-8 mb-auto w-full overflow-x-auto  sm:my-9">
+						<table className="mx-auto w-full table-auto border-collapse  bg-[#ffffff]  text-base">
+							<thead className="bg-[#ffffff]">
 								<tr>
-									<th className="rounded-tl-xl border border-[#252525] p-4 font-normal text-[#989898]" rowSpan={2}>
+									<th className="rounded-tl-xl border border-[#252525] p-4 font-normal text-[#000000]" rowSpan={2}>
 										Token Id
 									</th>
-									<th className="border border-[#252525] p-4 font-normal text-[#989898]" rowSpan={2}>
+									<th className="border border-[#252525] p-4 font-normal text-[#000000]" rowSpan={2}>
 										Pool
 									</th>
-									<th className="border border-[#252525] p-4 py-1 text-center font-normal text-[#989898]" colSpan={6}>
+									<th className="border border-[#252525] p-4 py-1 text-center font-normal text-[#000000]" colSpan={6}>
 										To Pay
 									</th>
-									<th className="border border-[#252525] p-4 font-normal text-[#989898]" rowSpan={2}>
+									<th className="border border-[#252525] p-4 font-normal text-[#000000]" rowSpan={2}>
 										Deadline
 									</th>
-									<th className="rounded-tr-xl border border-[#252525] p-4 font-normal text-[#989898]" rowSpan={2}></th>
+									<th className="rounded-tr-xl border border-[#252525] p-4 font-normal text-[#000000]" rowSpan={2}></th>
 								</tr>
 								<tr>
-									<th className="whitespace-nowrap border border-[#252525] px-2 py-1 text-center font-normal text-[#989898]">
+									<th className="whitespace-nowrap border border-[#252525] px-2 py-1 text-center font-normal text-[#000000]">
 										Initial Borrowed
 									</th>
-									<th className="whitespace-nowrap border border-[#252525] px-2 py-1 text-center font-normal text-[#989898]">
+									<th className="whitespace-nowrap border border-[#252525] px-2 py-1 text-center font-normal text-[#000000]">
 										APR
 									</th>
-									<th className="whitespace-nowrap border border-[#252525] px-2 py-1 text-center font-normal text-[#989898]">
+									<th className="whitespace-nowrap border border-[#252525] px-2 py-1 text-center font-normal text-[#000000]">
 										Interest Accrued
 									</th>
-									<th className="whitespace-nowrap border border-[#252525] px-2 py-1 text-center font-normal text-[#989898]">
+									<th className="whitespace-nowrap border border-[#252525] px-2 py-1 text-center font-normal text-[#000000]">
 										Late Fees
 									</th>
-									{/* <th className="whitespace-nowrap border border-[#252525] px-2 py-1 text-center font-normal text-[#989898]">
+									{/* <th className="whitespace-nowrap border border-[#252525] px-2 py-1 text-center font-normal text-[#000000]">
 										<Tooltip content="We add a small buffer to account for the interest accrued from the time when transaction is sent to when it is included on-chain (eg: if tx stays for 1 hour in the mempool it will need to pay interest for 1 extra hour). All excess ETH is returned automatically in the repayment tx.">
 											<span className="flex w-full items-center justify-center gap-1">
 												<span>Buffer</span>
@@ -112,7 +112,7 @@ export default function LoanPoolsContainer({ chainId, chainName, userAddress }: 
 											</span>
 										</Tooltip>
 									</th> */}
-									<th className="whitespace-nowrap border border-[#252525] px-2 py-1 text-center font-normal text-[#989898]">
+									<th className="whitespace-nowrap border border-[#252525] px-2 py-1 text-center font-normal text-[#000000]">
 										Total
 									</th>
 								</tr>
@@ -124,7 +124,7 @@ export default function LoanPoolsContainer({ chainId, chainName, userAddress }: 
 											<tr key={'pl' + index}>
 												<td className="border border-[#252525] px-4 py-2">
 													<span className="flex items-center gap-4">
-														<div className="relative aspect-square h-10 rounded bg-[#111111]"></div>
+														<div className="relative aspect-square h-10 rounded bg-[#ffffff]"></div>
 														<div className="placeholder-box h-5 w-[93px]"></div>
 													</span>
 												</td>
@@ -153,7 +153,7 @@ export default function LoanPoolsContainer({ chainId, chainName, userAddress }: 
 													<div className="placeholder-box h-5 w-[72px]"></div>
 												</td>
 												<td className="border border-[#252525] px-4 py-2">
-													<div className="ml-auto h-[34px] w-[10rem] rounded-lg border border-[#29337D] bg-[#29337D]"></div>
+													<div className="ml-auto h-[34px] w-[10rem] rounded-lg border border-[#29337D] bg-[#ffffff]"></div>
 												</td>
 											</tr>
 										))}
@@ -164,7 +164,7 @@ export default function LoanPoolsContainer({ chainId, chainName, userAddress }: 
 											<tr key={loan.id}>
 												<td className="whitespace-nowrap border border-[#252525] px-4 py-2">
 													<span className="flex items-center gap-4">
-														<div className="relative aspect-square h-10 rounded bg-[#111111]">
+														<div className="relative aspect-square h-10 rounded bg-[#f0f0f0]">
 															{loan.imgUrl !== '' && (
 																<Image src={loan.imgUrl} fill alt="" className="aspect-square rounded" />
 															)}
@@ -225,7 +225,7 @@ export default function LoanPoolsContainer({ chainId, chainName, userAddress }: 
 												<td className="whitespace-nowrap border border-[#252525] px-4 py-2">
 													{itemsInCart?.includes(loan.id) ? (
 														<button
-															className="ml-auto flex h-4 min-w-[10rem] items-center justify-center gap-1 rounded-lg border border-[#29337D] p-4 text-sm text-white"
+															className="ml-auto flex h-4 min-w-[10rem] items-center justify-center gap-1 rounded-lg bg-[#3B82F6] p-4 text-sm text-white"
 															onClick={() => addToCart({ contractAddress: 'repay', tokenId: loan.id })}
 														>
 															<svg
@@ -242,7 +242,7 @@ export default function LoanPoolsContainer({ chainId, chainName, userAddress }: 
 														</button>
 													) : (
 														<button
-															className="ml-auto flex h-4 min-w-[10rem] items-center justify-center gap-1 rounded-lg border border-[#29337D] bg-[#29337D] p-4 text-sm text-white disabled:cursor-not-allowed disabled:text-opacity-50"
+															className="ml-auto flex h-4 min-w-[10rem] items-center justify-center gap-1 rounded-lg  bg-[#3B82F6] p-4 text-sm text-white disabled:cursor-not-allowed disabled:text-opacity-50"
 															onClick={() => addToCart({ contractAddress: 'repay', tokenId: loan.id })}
 															disabled={!isConnected || address?.toLowerCase() !== userAddress?.toLowerCase()}
 														>

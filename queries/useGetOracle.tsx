@@ -130,7 +130,8 @@ const useGetOracle = ({
 		['oracle', chainId, nftContractAddress],
 		() => fetchOracle({ api: config.quoteApi, nftContractAddress, isTestnet: config.isTestnet }),
 		{
-			refetchInterval: 30_000
+			retry:false,
+			// refetchInterval: 30_000
 		}
 	)
 }

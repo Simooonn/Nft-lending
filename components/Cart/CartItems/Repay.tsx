@@ -144,13 +144,13 @@ export function RepayItems({ chainId, userAddress }: IRepayItemProps) {
 										<span className="sr-only">Remove Item from cart</span>
 									</button>
 
-									<div className="relative aspect-square h-10 w-10 rounded bg-[#202020]">
+									<div className="relative aspect-square h-10 w-10 rounded bg-[#f0f0f0]">
 										{imgUrl !== '' && <Image src={imgUrl} fill alt="" className="aspect-square rounded" />}
 									</div>
 
 									<span className="flex flex-col flex-wrap justify-between gap-1">
 										<span>{`${id.slice(0, 4) + '...' + id.slice(-3)}`}</span>
-										<span className="font-base text-[0.8rem] text-[#989898]">{pool.name}</span>
+										<span className="font-base text-[0.8rem] text-[#000000]">{pool.name}</span>
 									</span>
 
 									<span className="ml-auto flex gap-1.5">
@@ -171,7 +171,7 @@ export function RepayItems({ chainId, userAddress }: IRepayItemProps) {
 					<hr className="border-[rgba(255,255,255,0.08)]" />
 
 					<h2 className="flex items-center">
-						<span className="font-base text-[#989898]">Total</span>
+						<span className="font-base text-[#000000]">Total</span>
 						<span className="ml-auto flex gap-1.5">
 							<Image src="/assets/ethereum.png" height={16} width={16} className="object-contain" alt="ethereum" />
 							{/* Show placeholder when fetching quotation */}
@@ -186,7 +186,7 @@ export function RepayItems({ chainId, userAddress }: IRepayItemProps) {
 					</h2>
 
 					<h2 className="flex items-center">
-						<span className="font-base text-[#989898]">Buffer (5%)</span>
+						<span className="font-base text-[#000000]">Buffer (5%)</span>
 						<span className="ml-auto flex gap-1.5">
 							<Image src="/assets/ethereum.png" height={16} width={16} className="object-contain" alt="ethereum" />
 							{/* Show placeholder when fetching quotation */}
@@ -206,7 +206,7 @@ export function RepayItems({ chainId, userAddress }: IRepayItemProps) {
 					</small>
 
 					<h2 className="flex items-center">
-						<span className="font-base text-[#989898]">Total Payable</span>
+						<span className="font-base text-[#000000]">Total Payable</span>
 						<span className="ml-auto flex gap-1.5">
 							<Image src="/assets/ethereum.png" height={16} width={16} className="object-contain" alt="ethereum" />
 							{/* Show placeholder when fetching quotation */}
@@ -244,7 +244,7 @@ export function RepayItems({ chainId, userAddress }: IRepayItemProps) {
 						</button>
 					) : (
 						<button
-							className="mt-5 rounded-lg bg-blue-500 p-2 shadow disabled:cursor-not-allowed disabled:text-opacity-50"
+							className="mt-5 rounded-lg bg-blue-500 text-[#ffffff] p-2 shadow disabled:cursor-not-allowed disabled:text-[#f0f0f0]"
 							disabled={!repayLoans}
 							onClick={() => repayLoans?.()}
 						>
