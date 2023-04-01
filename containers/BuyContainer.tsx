@@ -37,6 +37,8 @@ export default function BuyContainer() {
 		gutter: 4
 	})
 
+	const [confirm, setConfirm] = useState<boolean>(false)
+
 	const data = [
 		{ id: 1, lender: '0PX3208883d10191', available: '28 / 80 ETH', interest: '1%' },
 		{ id: 2, lender: '0PX3208883d10079', available: '58 / 80 ETH', interest: '44%' },
@@ -59,9 +61,39 @@ export default function BuyContainer() {
 
 	let poolsInterestRange = [2, 5]
 	const [interestRange, setInterestRange] = useState<Array<number> | null>(null)
+
+	const dataPrice = {
+		liquidation: 30,
+		required: 30,
+		marketing: 90
+	}
+	const [liquidation, setLiquidation] = useState<number>(dataPrice.liquidation)
+	const [required, setRequired] = useState<number>(dataPrice.liquidation)
+	const [marketing, setMarketing] = useState<number>(dataPrice.liquidation)
+	const x2 = 1.6
+	const x3 = 1.7
+	const x4 = 1.8
+	const x5 = 1.9
+
 	const onInterestRateChange = (value: Array<number>) => {
 		setInterestRange(value)
-		console.log(value, '666')
+		if (value[0] === 2) {
+			setLiquidation(dataPrice.liquidation * x2)
+			setRequired(dataPrice.required * x2)
+			setMarketing(dataPrice.marketing * x2)
+		} else if (value[0] === 3) {
+			setLiquidation(dataPrice.liquidation * x3)
+			setRequired(dataPrice.required * x3)
+			setMarketing(dataPrice.marketing * x3)
+		} else if (value[0] === 4) {
+			setLiquidation(dataPrice.liquidation * x4)
+			setRequired(dataPrice.required * x4)
+			setMarketing(dataPrice.marketing * x4)
+		} else {
+			setLiquidation(dataPrice.liquidation * x5)
+			setRequired(dataPrice.required * x5)
+			setMarketing(dataPrice.marketing * x5)
+		}
 	}
 
 	const dialog = useDialogState({
@@ -146,6 +178,10 @@ export default function BuyContainer() {
 													style={{ margin: '0 auto' }}
 													className="cus-button ml-auto flex h-4 min-w-[10rem] items-center justify-center gap-1 rounded-lg border border-[#243b55] bg-[#29337D] p-4 text-sm text-white hover:opacity-90 active:opacity-80 disabled:cursor-not-allowed disabled:text-opacity-50"
 													onClick={() => {
+														setLiquidation(dataPrice.liquidation * x2)
+														setRequired(dataPrice.required * x2)
+														setMarketing(dataPrice.marketing * x2)
+														setConfirm(false)
 														router.push(
 															{ pathname: router.pathname, query: { ...router.query, cart: true } },
 															undefined,
@@ -191,72 +227,83 @@ export default function BuyContainer() {
 							></path>
 						</svg>
 					</Link>
-					<div className="p-8 text-black">
-						<div>
-							<SelectLabel state={select}>NFT Address</SelectLabel>
-							<Select
-								state={select}
-								className="flex w-full flex-nowrap items-center gap-2 rounded-md bg-[#EFF6FF] px-4 py-2"
-							>
-								{/* <img src={select.value} alt="" aria-hidden className="h-5 w-5 rounded-full" /> */}
-
-								<span className="mr-auto overflow-hidden text-ellipsis whitespace-nowrap">{select.value}</span>
-								<SelectArrow />
-							</Select>
-							<SelectPopover
-								state={select}
-								composite={false}
-								className="z-50 flex max-h-[min(var(--popover-available-height,300px),300px)] flex-col overflow-auto overscroll-contain rounded-md bg-[#F1F1F1] pb-2"
-							>
-								{address.map((collection) => (
-									<SelectItem
-										key={collection.name}
-										value={collection.name}
-										className="flex cursor-pointer scroll-m-2 flex-nowrap items-center gap-2 px-4 py-2	data-[active-item]:bg-gray-600 data-[active-item]:bg-opacity-20"
+					{!confirm ? (
+						<>
+							<div className="p-8 text-black">
+								<div>
+									<SelectLabel state={select}>NFT Address</SelectLabel>
+									<Select
+										state={select}
+										className="flex w-full flex-nowrap items-center gap-2 rounded-md bg-[#EFF6FF] px-4 py-2"
 									>
-										<img src={collection.img} alt="" aria-hidden className="h-5 w-5 rounded-full" />
-										<span className="overflow-hidden text-ellipsis whitespace-nowrap">{collection.name}</span>
-									</SelectItem>
-								))}
-							</SelectPopover>
-						</div>
-						<div>Leverage</div>
-						<div>
-							<BuySlider
-								key={'interestRates' + poolsInterestRange.join('')}
-								range={poolsInterestRange}
-								symbol="X"
-								label=""
-								decimals={0}
-								disabled={false}
-								onValueCommit={onInterestRateChange}
-							/>
-						</div>
-						<div className="flex justify-between border-b py-3">
-							<div>Liquidation Price:</div>
-							<div>0 ETH</div>
-						</div>
-						<div className="flex justify-between border-b py-3">
-							<div>Required Collateral:</div>
-							<div>0 ETH</div>
-						</div>
-						<div className="flex justify-between border-b py-3">
-							<div>Marketing Price:</div>
-							<div className="text-lg">0 ETH</div>
-						</div>
+										{/* <img src={select.value} alt="" aria-hidden className="h-5 w-5 rounded-full" /> */}
 
-						<button
-							style={{ margin: '20px auto 0' }}
-							className="cus-button ml-auto flex h-4 min-w-[10rem] items-center justify-center gap-1 rounded-lg border border-[#243b55] bg-[#29337D] p-4 text-sm text-white hover:opacity-90 active:opacity-80 disabled:cursor-not-allowed disabled:text-opacity-50"
-							onClick={() => {
-								router.push({ pathname: router.pathname }, undefined, {
-									shallow: true
-								})
-							}}
-						>
-							Confirm
-						</button>
-					</div>
+										<span className="mr-auto overflow-hidden text-ellipsis whitespace-nowrap">{select.value}</span>
+										<SelectArrow />
+									</Select>
+									<SelectPopover
+										state={select}
+										composite={false}
+										className="z-50 flex max-h-[min(var(--popover-available-height,300px),300px)] flex-col overflow-auto overscroll-contain rounded-md bg-[#F1F1F1] pb-2"
+									>
+										{address.map((collection) => (
+											<SelectItem
+												key={collection.name}
+												value={collection.name}
+												className="flex cursor-pointer scroll-m-2 flex-nowrap items-center gap-2 px-4 py-2	data-[active-item]:bg-gray-600 data-[active-item]:bg-opacity-20"
+											>
+												<img src={collection.img} alt="" aria-hidden className="h-5 w-5 rounded-full" />
+												<span className="overflow-hidden text-ellipsis whitespace-nowrap">{collection.name}</span>
+											</SelectItem>
+										))}
+									</SelectPopover>
+								</div>
+								<div>Leverage</div>
+								<div>
+									<BuySlider
+										key={'interestRates' + poolsInterestRange.join('')}
+										range={poolsInterestRange}
+										symbol="X"
+										label=""
+										decimals={0}
+										disabled={false}
+										onValueCommit={onInterestRateChange}
+									/>
+								</div>
+								<div className="flex justify-between border-b py-3">
+									<div>Liquidation Price:</div>
+									<div>{liquidation.toFixed(2)} ETH</div>
+								</div>
+								<div className="flex justify-between border-b py-3">
+									<div>Required Collateral:</div>
+									<div>{required.toFixed(2)} ETH</div>
+								</div>
+								<div className="flex justify-between border-b py-3">
+									<div>Marketing Price:</div>
+									<div className="text-lg">{marketing.toFixed(2)} ETH</div>
+								</div>
+
+								<button
+									style={{ margin: '20px auto 0' }}
+									className="cus-button ml-auto flex h-4 min-w-[10rem] items-center justify-center gap-1 rounded-lg border border-[#243b55] bg-[#29337D] p-4 text-sm text-white hover:opacity-90 active:opacity-80 disabled:cursor-not-allowed disabled:text-opacity-50"
+									onClick={() => {
+										setConfirm(true)
+									}}
+								>
+									Confirm
+								</button>
+							</div>
+						</>
+					) : (
+						<>
+							<div className="mt-20 justify-center p-8 text-center text-black">
+								<p className="text-xl">Thank you for your request!</p>
+								<p>
+									Transaction was <span className="text-[#00B720]">successful!</span>
+								</p>
+							</div>
+						</>
+					)}
 				</Dialog>
 			</Layout>
 		</>
