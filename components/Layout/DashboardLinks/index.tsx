@@ -59,11 +59,11 @@ export function DashboardLinks() {
 					</Link>
 				</MenuItem>
 
-				{/*<MenuItem as="span" className="flex">*/}
-				{/*	<Link href="/buy" className="w-full px-4 py-2 hover:bg-gray-100">*/}
-				{/*		Buy*/}
-				{/*	</Link>*/}
-				{/*</MenuItem>*/}
+				<MenuItem as="span" className="flex">
+					<Link href="/buy" className="w-full px-4 py-2 hover:bg-gray-100">
+						Buy
+					</Link>
+				</MenuItem>
 				<MenuItem as="span" className="flex">
 					<Link href="/repay" className="w-full px-4 py-2 hover:bg-gray-100">
 						Repay
@@ -75,11 +75,11 @@ export function DashboardLinks() {
 					</Link>
 				</MenuItem>
 
-				{/*<MenuItem as="span" className="flex">*/}
-				{/*	<Link href="/lend" className="w-full px-4 py-2 hover:bg-gray-100">*/}
-				{/*		Lend*/}
-				{/*	</Link>*/}
-				{/*</MenuItem>*/}
+				<MenuItem as="span" className="flex">
+					<Link href="/lend" className="w-full px-4 py-2 hover:bg-gray-100">
+						Lend
+					</Link>
+				</MenuItem>
 			</AriaMenu>
 
 			<nav className="mr-auto hidden w-full items-center gap-3 rounded-xl bg-white p-1 text-base font-semibold text-black sm:w-auto lg:flex">
@@ -92,10 +92,10 @@ export function DashboardLinks() {
 					priority
 				/>
 				<AppLink name="Borrow" path="/" />
-				{/*<AppLink name="Buy" path="/buy" />*/}
+				<AppLink name="Buy" path="/buy" />
 				<AppLink name="Repay" path="/repay" />
 				<AppLink name="Create Pool" path="/create" />
-				{/*<AppLink name="Lend" path="/lend" />*/}
+				<AppLink name="Lend" path="/lend" />
 				{/*<AppLink name="Aggregator" path="/aggregator" />*/}
 			</nav>
 		</>

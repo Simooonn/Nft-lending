@@ -9,7 +9,7 @@ import Link from 'next/link'
 import { BuySlider } from '~/components/Form/BuySlider'
 
 const address = [
-	{ name: '#475569', img: './assets/img/image1.png' },
+	{ name: 'Little Wild Cat NFT', img: './assets/img/image1.png' },
 	{ name: 'Cool Cats NFT', img: './assets/img/image2.png' },
 	{ name: 'NFT Worlds', img: './assets/img/image3.png' }
 ]
@@ -31,7 +31,7 @@ export default function BuyContainer() {
 	const { cart, ...queries } = router.query
 
 	const select = useSelectState({
-		defaultValue: '#475569',
+		defaultValue: 'Little Wild Cat NFT',
 		setValueOnMove: true,
 		sameWidth: true,
 		gutter: 4
