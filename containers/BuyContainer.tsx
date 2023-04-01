@@ -62,38 +62,16 @@ export default function BuyContainer() {
 	let poolsInterestRange = [2, 5]
 	const [interestRange, setInterestRange] = useState<Array<number> | null>(null)
 
-	const dataPrice = {
-		liquidation: 30,
-		required: 30,
-		marketing: 90
-	}
-	const [liquidation, setLiquidation] = useState<number>(dataPrice.liquidation)
-	const [required, setRequired] = useState<number>(dataPrice.liquidation)
-	const [marketing, setMarketing] = useState<number>(dataPrice.liquidation)
-	const x2 = 1.6
-	const x3 = 1.7
-	const x4 = 1.8
-	const x5 = 1.9
+	const marketingPrice = 90
+	const [liquidation, setLiquidation] = useState<number>(0)
+	const [required, setRequired] = useState<number>(0)
+	const [marketing, setMarketing] = useState<number>(marketingPrice)
 
 	const onInterestRateChange = (value: Array<number>) => {
 		setInterestRange(value)
-		if (value[0] === 2) {
-			setLiquidation(dataPrice.liquidation * x2)
-			setRequired(dataPrice.required * x2)
-			setMarketing(dataPrice.marketing * x2)
-		} else if (value[0] === 3) {
-			setLiquidation(dataPrice.liquidation * x3)
-			setRequired(dataPrice.required * x3)
-			setMarketing(dataPrice.marketing * x3)
-		} else if (value[0] === 4) {
-			setLiquidation(dataPrice.liquidation * x4)
-			setRequired(dataPrice.required * x4)
-			setMarketing(dataPrice.marketing * x4)
-		} else {
-			setLiquidation(dataPrice.liquidation * x5)
-			setRequired(dataPrice.required * x5)
-			setMarketing(dataPrice.marketing * x5)
-		}
+		setLiquidation(marketingPrice * ((value[0] - 2) / 10 + 0.6))
+		setRequired(marketingPrice * (1 / value[0]))
+		setMarketing(marketingPrice * value[0])
 	}
 
 	const dialog = useDialogState({
@@ -178,9 +156,9 @@ export default function BuyContainer() {
 													style={{ margin: '0 auto' }}
 													className="cus-button ml-auto flex h-4 min-w-[10rem] items-center justify-center gap-1 rounded-lg border border-[#243b55] bg-[#29337D] p-4 text-sm text-white hover:opacity-90 active:opacity-80 disabled:cursor-not-allowed disabled:text-opacity-50"
 													onClick={() => {
-														setLiquidation(dataPrice.liquidation * x2)
-														setRequired(dataPrice.required * x2)
-														setMarketing(dataPrice.marketing * x2)
+														setLiquidation(marketingPrice * 0.6)
+														setRequired(marketingPrice * (1 / 2))
+														setMarketing(marketingPrice * 2)
 														setConfirm(false)
 														router.push(
 															{ pathname: router.pathname, query: { ...router.query, cart: true } },
