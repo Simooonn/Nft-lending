@@ -95,7 +95,9 @@
 	}
 
 	.input-field {
-		@apply rounded-lg border-none bg-[#151515] p-2 text-white placeholder:font-mono placeholder:slashed-zero;
+		/*bg-[#151515]*/
+		/*text-white*/
+		@apply rounded-lg border-none p-2 placeholder:font-mono placeholder:slashed-zero;
 	}
 
 	[data-backdrop] {

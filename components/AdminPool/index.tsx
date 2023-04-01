@@ -227,7 +227,7 @@ export default function AdminPool({
 					/>
 				</label>
 				<button
-					className="mt-auto min-h-[2.5rem] min-w-[7.5rem] rounded-lg bg-[#243b55] p-2 text-center text-sm text-white disabled:cursor-not-allowed"
+					className="mt-auto min-h-[2.5rem] min-w-[7.5rem] rounded-lg bg-[#29337D] p-2 text-center text-sm text-white disabled:cursor-not-allowed"
 					disabled={!deposit || approvingDeposit || confirmingDeposit || disableActions ? true : false}
 				>
 					{approvingDeposit || confirmingDeposit ? <BeatLoader /> : 'Deposit'}
@@ -260,7 +260,7 @@ export default function AdminPool({
 					/>
 				</label>
 				<button
-					className="mt-auto min-h-[2.5rem] min-w-[7.5rem] rounded-lg bg-[#243b55] p-2 text-center text-sm text-white disabled:cursor-not-allowed"
+					className="mt-auto min-h-[2.5rem] min-w-[7.5rem] rounded-lg bg-[#29337D] p-2 text-center text-sm text-white disabled:cursor-not-allowed"
 					disabled={!withdraw || approvingWithdraw || confirmingWithdraw || disableActions ? true : false}
 				>
 					{approvingWithdraw || confirmingWithdraw ? <BeatLoader /> : 'Withdraw'}
@@ -293,7 +293,7 @@ export default function AdminPool({
 					/>
 				</label>
 				<button
-					className="mt-auto min-h-[2.5rem] min-w-[7.5rem] rounded-lg bg-[#243b55] p-2 text-center text-sm text-white disabled:cursor-not-allowed"
+					className="mt-auto min-h-[2.5rem] min-w-[7.5rem] rounded-lg bg-[#29337D] p-2 text-center text-sm text-white disabled:cursor-not-allowed"
 					disabled={!updateLtv || approvingLtvChange || confirmingLtvChange || disableActions ? true : false}
 				>
 					{approvingLtvChange || confirmingLtvChange ? <BeatLoader /> : 'Update'}
@@ -326,7 +326,7 @@ export default function AdminPool({
 					/>
 				</label>
 				<button
-					className="mt-auto min-h-[2.5rem] min-w-[7.5rem] rounded-lg bg-[#243b55] p-2 text-center text-sm text-white disabled:cursor-not-allowed"
+					className="mt-auto min-h-[2.5rem] min-w-[7.5rem] rounded-lg bg-[#29337D] p-2 text-center text-sm text-white disabled:cursor-not-allowed"
 					disabled={
 						!updateMaxPrice || approvingMaxPriceChange || confirmingMaxPriceChange || disableActions ? true : false
 					}
@@ -361,7 +361,7 @@ export default function AdminPool({
 					/>
 				</label>
 				<button
-					className="mt-auto min-h-[2.5rem] min-w-[7.5rem] rounded-lg bg-[#243b55] p-2 text-center text-sm text-white disabled:cursor-not-allowed"
+					className="mt-auto min-h-[2.5rem] min-w-[7.5rem] rounded-lg bg-[#29337D] p-2 text-center text-sm text-white disabled:cursor-not-allowed"
 					disabled={
 						!updateMaxDailyBorrows || approvingDailyBorrowsChange || confirmingDailyBorrowsChange || disableActions
 							? true

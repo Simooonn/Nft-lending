@@ -32,7 +32,7 @@ export function BorrowCart(props: IBorrowCartProps) {
 		<Dialog
 			state={dialog}
 			portal={typeof window !== 'undefined'}
-			className="dialog min-h-[300px] w-full max-w-[720px] overflow-auto !border-none bg-[#22242A] !p-0"
+			className="dialog min-h-[300px] w-full max-w-[720px] overflow-auto !border-none bg-[#FFFFFF] !p-0 text-black"
 		>
 			<Link href={router.asPath.split('?cart=true')[0]} className="buttonDismiss absolute top-2 right-2">
 				<span className="sr-only">Close cart</span>

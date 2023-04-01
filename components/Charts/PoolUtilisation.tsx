@@ -11,7 +11,7 @@ export interface IPoolUtilisationChartProps {
 	maxInterest: number
 }
 
-const isDark = true
+const isDark = false
 const xAxisData = new Array(101).fill('x').map((_, index) => index)
 
 export default function PoolUtilisationChart({ minInterest, maxInterest }: IPoolUtilisationChartProps) {

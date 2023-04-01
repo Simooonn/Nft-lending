@@ -218,16 +218,16 @@ const ManagePools: NextPage = () => {
 					{error && <small className="text-center text-red-500">{formatMsgInToast(error.message)}</small>}
 
 					{!isConnected ? (
-						<button type="button" className="rounded-lg bg-[#243b55] p-2 text-white" onClick={openConnectModal}>
+						<button type="button" className="rounded-lg bg-[#29337D] p-2 text-white" onClick={openConnectModal}>
 							Connect Wallet
 						</button>
 					) : chain?.unsupported ? (
-						<button type="button" className="rounded-lg bg-[#243b55] p-2 text-white" onClick={openChainModal}>
+						<button type="button" className="rounded-lg bg-[#29337D] p-2 text-white" onClick={openChainModal}>
 							Switch Network
 						</button>
 					) : (
 						<button
-							className="rounded-lg bg-[#243b55] p-2 text-white disabled:cursor-not-allowed"
+							className="rounded-lg bg-[#29337D] p-2 text-white disabled:cursor-not-allowed"
 							disabled={isLoading || !isConnected || chain?.unsupported || isInvalidInterests || !supportsInterface}
 						>
 							{isLoading ? <BeatLoader color="white" /> : 'Create'}

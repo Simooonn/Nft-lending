@@ -109,7 +109,7 @@ export function BorrowCollectionItemCard({ data, chainName }: IBorrowCollectionI
 
 			<Link
 				href={`/collections/${chainName}/${data.address}`}
-				className="mt-auto rounded-xl bg-[#243b55] p-2 text-center text-sm"
+				className="mt-auto rounded-xl bg-[#29337D] p-2 text-center text-sm"
 			>
 				View Pools1
 			</Link>

@@ -19,7 +19,7 @@ const ManagePools: NextPage = () => {
 
 			<Layout>
 				<button
-					className="mx-auto mt-12 min-h-[2.5rem] w-[7.5rem] rounded-lg bg-[#243b55] p-2 text-center text-sm text-white disabled:cursor-not-allowed"
+					className="mx-auto mt-12 min-h-[2.5rem] w-[7.5rem] rounded-lg bg-[#29337D] p-2 text-center text-sm text-white disabled:cursor-not-allowed"
 					disabled={!emergencyShutdown || chain?.unsupported || !isConnected}
 					onClick={() => emergencyShutdown?.()}
 				>

@@ -70,7 +70,7 @@ export default function LiquidateContainer({ chainId, chainName, userAddress }: 
 														<div className="placeholder-box h-5 w-[90px]"></div>
 													</td>
 													<td className="px-4 py-2">
-														<div className="ml-auto h-[34px] w-[10rem] rounded-lg border border-[#243b55] bg-[#243b55]"></div>
+														<div className="ml-auto h-[34px] w-[10rem] rounded-lg border border-[#29337D] bg-[#29337D]"></div>
 													</td>
 												</tr>
 											))}
@@ -166,7 +166,7 @@ const LiquidateLoan = ({ liquidatorAddress, chainId, data }: ILiquidateLoan) => 
 
 	return (
 		<button
-			className="ml-auto flex h-4 min-w-[10rem] items-center justify-center gap-1 rounded-lg border border-[#243b55] bg-[#243b55] p-4 text-sm text-white disabled:cursor-not-allowed disabled:text-opacity-50"
+			className="ml-auto flex h-4 min-w-[10rem] items-center justify-center gap-1 rounded-lg border border-[#29337D] bg-[#29337D] p-4 text-sm text-white disabled:cursor-not-allowed disabled:text-opacity-50"
 			onClick={() => liquidate?.()}
 			disabled={
 				!isConnected ||

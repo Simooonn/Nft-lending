@@ -153,7 +153,7 @@ export default function LoanPoolsContainer({ chainId, chainName, userAddress }: 
 													<div className="placeholder-box h-5 w-[72px]"></div>
 												</td>
 												<td className="border border-[#252525] px-4 py-2">
-													<div className="ml-auto h-[34px] w-[10rem] rounded-lg border border-[#243b55] bg-[#243b55]"></div>
+													<div className="ml-auto h-[34px] w-[10rem] rounded-lg border border-[#29337D] bg-[#29337D]"></div>
 												</td>
 											</tr>
 										))}
@@ -225,7 +225,7 @@ export default function LoanPoolsContainer({ chainId, chainName, userAddress }: 
 												<td className="whitespace-nowrap border border-[#252525] px-4 py-2">
 													{itemsInCart?.includes(loan.id) ? (
 														<button
-															className="ml-auto flex h-4 min-w-[10rem] items-center justify-center gap-1 rounded-lg border border-[#243b55] p-4 text-sm text-white"
+															className="ml-auto flex h-4 min-w-[10rem] items-center justify-center gap-1 rounded-lg border border-[#29337D] p-4 text-sm text-white"
 															onClick={() => addToCart({ contractAddress: 'repay', tokenId: loan.id })}
 														>
 															<svg
@@ -242,7 +242,7 @@ export default function LoanPoolsContainer({ chainId, chainName, userAddress }: 
 														</button>
 													) : (
 														<button
-															className="ml-auto flex h-4 min-w-[10rem] items-center justify-center gap-1 rounded-lg border border-[#243b55] bg-[#243b55] p-4 text-sm text-white disabled:cursor-not-allowed disabled:text-opacity-50"
+															className="ml-auto flex h-4 min-w-[10rem] items-center justify-center gap-1 rounded-lg border border-[#29337D] bg-[#29337D] p-4 text-sm text-white disabled:cursor-not-allowed disabled:text-opacity-50"
 															onClick={() => addToCart({ contractAddress: 'repay', tokenId: loan.id })}
 															disabled={!isConnected || address?.toLowerCase() !== userAddress?.toLowerCase()}
 														>

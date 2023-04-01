@@ -37,7 +37,7 @@ export function DashboardLinks() {
 				className="mr-auto flex items-center gap-[6px] rounded-xl bg-white px-2 py-2 text-black lg:hidden"
 			>
 				<span className="sr-only">Dashboards</span>
-				<Image src="/assets/pro-logo1.png" alt="" className="block" height={24} width={24} priority />
+				<Image src="/assets/pro-logo2.png" alt="" className="block" height={40} width={40} priority />
 				<svg fill="none" height="7" width="14" xmlns="http://www.w3.org/2000/svg">
 					<path
 						d="M12.75 1.54001L8.51647 5.0038C7.77974 5.60658 6.72026 5.60658 5.98352 5.0038L1.75 1.54001"
@@ -59,32 +59,36 @@ export function DashboardLinks() {
 					</Link>
 				</MenuItem>
 
+				{/*<MenuItem as="span" className="flex">*/}
+				{/*	<Link href="/buy" className="w-full px-4 py-2 hover:bg-gray-100">*/}
+				{/*		Buy*/}
+				{/*	</Link>*/}
+				{/*</MenuItem>*/}
 				<MenuItem as="span" className="flex">
 					<Link href="/repay" className="w-full px-4 py-2 hover:bg-gray-100">
 						Repay
 					</Link>
 				</MenuItem>
-
 				<MenuItem as="span" className="flex">
 					<Link href="/create" className="w-full px-4 py-2 hover:bg-gray-100">
-						Create Pool2
+						Create Pool
 					</Link>
 				</MenuItem>
 
-				<MenuItem as="span" className="flex">
-					<Link href="/aggregator" className="w-full px-4 py-2 hover:bg-gray-100">
-						Aggregator
-					</Link>
-				</MenuItem>
+				{/*<MenuItem as="span" className="flex">*/}
+				{/*	<Link href="/lend" className="w-full px-4 py-2 hover:bg-gray-100">*/}
+				{/*		Lend*/}
+				{/*	</Link>*/}
+				{/*</MenuItem>*/}
 			</AriaMenu>
 
 			<nav className="mr-auto hidden w-full items-center gap-3 rounded-xl bg-white p-1 text-base font-semibold text-black sm:w-auto lg:flex">
 				<Image src="/assets/pro-logo1.png" alt="" className={"hidden sm:block " + styles.headerLogo} height={100} width={217} priority />
 				<AppLink name="Borrow" path="/" />
-				<AppLink name="Buy" path="/buy" />
+				{/*<AppLink name="Buy" path="/buy" />*/}
 				<AppLink name="Repay" path="/repay" />
 				<AppLink name="Create Pool" path="/create" />
-				<AppLink name="Lend" path="/lend" />
+				{/*<AppLink name="Lend" path="/lend" />*/}
 				{/*<AppLink name="Aggregator" path="/aggregator" />*/}
 			</nav>
 		</>

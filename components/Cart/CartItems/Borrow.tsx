@@ -140,8 +140,8 @@ export function BorrowItems({ poolData, nftsList, chainId, collectionAddress, fe
 	return (
 		<>
 			<div className="flex flex-col lg:flex-row">
-				<div className="bg-[#191B21] p-6 lg:flex-1">
-					<h1 className="text-base font-semibold">You Deposit:</h1>
+				<div className="bg-[#F0F0F0] p-6 lg:flex-1">
+					<h1 className="text-black font-semibold">You Deposit:</h1>
 
 					<div className="mt-4 flex max-w-[312px] flex-nowrap gap-3 overflow-x-auto">
 						{!isConnected ? (
@@ -196,7 +196,7 @@ export function BorrowItems({ poolData, nftsList, chainId, collectionAddress, fe
 						)}
 					</div>
 
-					<div className="mt-6 flex flex-col gap-3 text-sm text-[#9CA3AF]">
+					<div className="mt-6 flex flex-col gap-3 text-sm text-[#000000]">
 						<p className="flex justify-between gap-4">
 							<span>Pool Name</span>
 							<span>{poolData?.name}</span>
@@ -252,7 +252,7 @@ export function BorrowItems({ poolData, nftsList, chainId, collectionAddress, fe
 
 				<div className="p-6 lg:flex-1">
 					<h1 className="text-base font-semibold">You Receive:</h1>
-					<div className="mt-6 flex flex-col gap-3 text-sm text-[#9CA3AF]">
+					<div className="mt-6 flex flex-col gap-3 text-sm text-[#000000]">
 						<p className="flex justify-between gap-4">
 							<span>Loans</span>
 							<span className="text-white">{cartTokenIds.length}</span>
@@ -338,7 +338,7 @@ const Button = ({
 }) => {
 	return (
 		<button
-			className="mt-5 min-h-[40px] w-full rounded-lg bg-[#3046FB] p-2 text-sm font-semibold shadow disabled:cursor-not-allowed disabled:text-gray-400"
+			className="mt-5 min-h-[40px] w-full rounded-lg bg-[#3B82F6] p-2 text-sm font-semibold shadow disabled:cursor-not-allowed disabled:text-[#f0f0f0] text-white"
 			onClick={onClick}
 			disabled={disabled}
 		>

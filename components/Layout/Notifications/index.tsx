@@ -89,7 +89,7 @@ export default function Notifications() {
 					</label>
 					<small className="mt-4 text-gray-500">Connect wallet with the address you want to get notified for</small>
 					<button
-						className="mt-4 min-h-[2.5rem] w-full rounded-lg bg-[#243b55] p-2 text-white disabled:cursor-not-allowed"
+						className="mt-4 min-h-[2.5rem] w-full rounded-lg bg-[#29337D] p-2 text-white disabled:cursor-not-allowed"
 						disabled={!isConnected || !address}
 					>
 						{isLoading ? <BeatLoader /> : 'Register'}
