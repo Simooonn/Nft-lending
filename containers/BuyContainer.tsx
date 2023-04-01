@@ -9,22 +9,10 @@ import Link from 'next/link'
 import { BuySlider } from '~/components/Form/BuySlider'
 
 const address = [
-	{ name: '#475569', img: './assets/img/image1.png' },
-	{ name: 'Cool Cats NFT', img: './assets/img/image2.png' },
-	{ name: 'NFT Worlds', img: './assets/img/image3.png' }
+	{ name: '#475569', img: './assets/img/image1.png', marketingPrice: 120 },
+	{ name: 'Cool Cats NFT', img: './assets/img/image2.png', marketingPrice: 90 },
+	{ name: 'NFT Worlds', img: './assets/img/image3.png', marketingPrice: 130 }
 ]
-
-function renderValue(address: any) {
-	const image = address.img
-	return (
-		<>
-			<img key={image} src={image} alt="" aria-hidden className="photo" />
-			<div className="value">
-				<div className="name">{address.name}</div>
-			</div>
-		</>
-	)
-}
 
 export default function BuyContainer() {
 	const router = useRouter()
@@ -40,21 +28,11 @@ export default function BuyContainer() {
 	const [confirm, setConfirm] = useState<boolean>(false)
 
 	const data = [
-		{ id: 1, lender: '0PX3208883d10191', available: '28 / 80 ETH', interest: '1%' },
-		{ id: 2, lender: '0PX3208883d10079', available: '58 / 80 ETH', interest: '44%' },
-		{ id: 3, lender: '0PX3208883d17968', available: '6 / 80 ETH', interest: '61%' },
-		{ id: 4, lender: '0PX3208883d10766', available: '15 / 80 ETH', interest: '36%' }
+		{ id: 1, lender: '0PX3208883d10191', available: 28, total: 80 },
+		{ id: 2, lender: '0PX3208883d10079', available: 58, total: 80 },
+		{ id: 3, lender: '0PX3208883d17968', available: 6, total: 80 },
+		{ id: 4, lender: '0PX3208883d10766', available: 15, total: 80 }
 	]
-	if (data.length === 0) {
-		for (let i = 0; i < 10; i++) {
-			data.push({
-				id: i,
-				lender: '0PX3208883d' + Math.floor(Math.random() * 9000 + 10000),
-				available: Math.floor(Math.random() * 80) + 1 + ' / 80 ETH',
-				interest: Math.floor(Math.random() * 100) + 1 + '%'
-			})
-		}
-	}
 
 	let isLoading = false
 	const isOpen = typeof cart === 'string' && cart === 'true'
@@ -62,16 +40,16 @@ export default function BuyContainer() {
 	let poolsInterestRange = [2, 5]
 	const [interestRange, setInterestRange] = useState<Array<number> | null>(null)
 
-	const marketingPrice = 90
 	const [liquidation, setLiquidation] = useState<number>(0)
 	const [required, setRequired] = useState<number>(0)
-	const [marketing, setMarketing] = useState<number>(marketingPrice)
+	const [marketingPrice, setMarketingPrice] = useState<number>(address[0].marketingPrice)
+
+	const [addressImg, setAddressImg] = useState<string>(address[0].img)
 
 	const onInterestRateChange = (value: Array<number>) => {
 		setInterestRange(value)
 		setLiquidation(marketingPrice * ((value[0] - 2) / 10 + 0.6))
 		setRequired(marketingPrice * (1 / value[0]))
-		setMarketing(marketingPrice * value[0])
 	}
 
 	const dialog = useDialogState({
@@ -146,10 +124,10 @@ export default function BuyContainer() {
 												className="border-bottm whitespace-nowrap border-[#252525] px-4 py-2"
 												style={{ textAlign: 'center' }}
 											>
-												{buy.available}
+												{buy.available} / {buy.total} ETH
 											</td>
 											<td className="whitespace-nowrap px-4 py-2" style={{ textAlign: 'center' }}>
-												{buy.interest}
+												{((buy.available / buy.total) * 100).toFixed(2)} %
 											</td>
 											<td className="whitespace-nowrap px-4 py-2">
 												<button
@@ -158,7 +136,6 @@ export default function BuyContainer() {
 													onClick={() => {
 														setLiquidation(marketingPrice * 0.6)
 														setRequired(marketingPrice * (1 / 2))
-														setMarketing(marketingPrice * 2)
 														setConfirm(false)
 														router.push(
 															{ pathname: router.pathname, query: { ...router.query, cart: true } },
@@ -214,7 +191,7 @@ export default function BuyContainer() {
 										state={select}
 										className="flex w-full flex-nowrap items-center gap-2 rounded-md bg-[#EFF6FF] px-4 py-2"
 									>
-										{/* <img src={select.value} alt="" aria-hidden className="h-5 w-5 rounded-full" /> */}
+										<img src={addressImg} alt="" aria-hidden className="h-5 w-5 rounded-full" />
 
 										<span className="mr-auto overflow-hidden text-ellipsis whitespace-nowrap">{select.value}</span>
 										<SelectArrow />
@@ -229,6 +206,10 @@ export default function BuyContainer() {
 												key={collection.name}
 												value={collection.name}
 												className="flex cursor-pointer scroll-m-2 flex-nowrap items-center gap-2 px-4 py-2	data-[active-item]:bg-gray-600 data-[active-item]:bg-opacity-20"
+												onClick={() => {
+													setMarketingPrice(collection.marketingPrice)
+													setAddressImg(collection.img)
+												}}
 											>
 												<img src={collection.img} alt="" aria-hidden className="h-5 w-5 rounded-full" />
 												<span className="overflow-hidden text-ellipsis whitespace-nowrap">{collection.name}</span>
@@ -258,7 +239,7 @@ export default function BuyContainer() {
 								</div>
 								<div className="flex justify-between border-b py-3">
 									<div>Marketing Price:</div>
-									<div className="text-lg">{marketing.toFixed(2)} ETH</div>
+									<div className="text-lg">{marketingPrice.toFixed(2)} ETH</div>
 								</div>
 
 								<button
