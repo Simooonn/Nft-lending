@@ -141,7 +141,7 @@ export function BorrowItems({ poolData, nftsList, chainId, collectionAddress, fe
 		<>
 			<div className="flex flex-col lg:flex-row">
 				<div className="bg-[#F0F0F0] p-6 lg:flex-1">
-					<h1 className="text-black font-semibold">You Deposit:</h1>
+					<h1 className="font-semibold text-black">You Deposit:</h1>
 
 					<div className="mt-4 flex max-w-[312px] flex-nowrap gap-3 overflow-x-auto">
 						{!isConnected ? (
@@ -338,7 +338,7 @@ const Button = ({
 }) => {
 	return (
 		<button
-			className="mt-5 min-h-[40px] w-full rounded-lg bg-[#3B82F6] p-2 text-sm font-semibold shadow disabled:cursor-not-allowed disabled:text-[#f0f0f0] text-white"
+			className="mt-5 min-h-[40px] w-full rounded-lg bg-[#3B82F6] p-2 text-sm font-semibold text-white shadow disabled:cursor-not-allowed disabled:text-[#f0f0f0]"
 			onClick={onClick}
 			disabled={disabled}
 		>

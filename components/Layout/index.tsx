@@ -7,7 +7,7 @@ import Menu from './Menu'
 import { CartLink } from './CartLink'
 import Notifications from './Notifications'
 import useAutoConnect from '~/hooks/useAutoConnect'
-import styles from '~/styles/layout.module.css';
+import styles from '~/styles/layout.module.css'
 
 interface ILayoutProps {
 	children?: React.ReactNode
@@ -25,7 +25,7 @@ export default function Layout({ children, className, ...props }: ILayoutProps) 
 				<meta name="description" content="NFT-collateralized loans for long tail markets." />
 			</Head>
 
-			<header className={"mx-auto flex w-full flex-row flex-wrap items-center justify-between gap-4 p-4 bg-[#ffffff] "}>
+			<header className={'mx-auto flex w-full flex-row flex-wrap items-center justify-between gap-4 bg-[#ffffff] p-4 '}>
 				<DashboardLinks />
 
 				<ConnectButton />

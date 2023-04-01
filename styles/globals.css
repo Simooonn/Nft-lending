@@ -5,11 +5,10 @@
 @layer base {
 	html {
 		scroll-behavior: smooth;
-
 	}
-	body{
-		background: #F0EFF4!important;
-		color: #232323!important;
+	body {
+		background: #f0eff4 !important;
+		color: #232323 !important;
 	}
 	html,
 	body {

@@ -1,14 +1,14 @@
-.layoutHeader{
+.layoutHeader {
 	background-color: #ffffff;
 	/*padding: 12px 0 12px 0;*/
 	/*width: 100%;*/
 }
-.headerLogo{
+.headerLogo {
 	margin: 0 63px 0 0;
 	height: 56px;
 	/*background-color: #ffffff;*/
 	width: 100%;
 }
-.connectButton{
+.connectButton {
 	background: rgba(59, 130, 246, 1);
 }

@@ -79,11 +79,11 @@ const BorrowContainer = ({ chainId, chainName, collectionAddress }: IPoolsContai
 
 		const minInterest = sortedPoolsByInterest[0]?.currentAnnualInterest
 		const maxInterest = sortedPoolsByInterest[sortedPoolsByInterest.length - 1]?.currentAnnualInterest
-		const maxInterestNum = Number(formatDailyInterest(maxInterest).replaceAll(',',''));
+		const maxInterestNum = Number(formatDailyInterest(maxInterest).replaceAll(',', ''))
 
 		poolsInterestRange = [
 			minInterest ? Number(formatDailyInterest(minInterest)) : 0,
-			maxInterest ? ( maxInterestNum > 1 ? 1 : maxInterestNum) : 1
+			maxInterest ? (maxInterestNum > 1 ? 1 : maxInterestNum) : 1
 		]
 
 		const sortedPoolsByLoanAmount = data.sort(
@@ -159,14 +159,12 @@ const BorrowContainer = ({ chainId, chainName, collectionAddress }: IPoolsContai
 
 			<Layout>
 				<div className="-mb-[6px] mt-12 flex flex-wrap justify-between gap-8 xl:gap-14 2xl:gap-16">
-					<h1 className="min-h-[2.5rem] text-xl font-semibold flex flex-row items-center">
+					<h1 className="flex min-h-[2.5rem] flex-row items-center text-xl font-semibold">
 						<button className="font-normal">
-							<Link href="/">
-								Home
-							</Link>
-							</button>
-						<div className="flex items-center m-1">
-							<Image src="/assets/right-row.png" alt="" className="block m-2" height={6} width={6} priority />
+							<Link href="/">Home</Link>
+						</button>
+						<div className="m-1 flex items-center">
+							<Image src="/assets/right-row.png" alt="" className="m-2 block" height={6} width={6} priority />
 						</div>
 						<div>{collectionName ? collectionName + ' Loans' : ''}</div>
 					</h1>
@@ -175,10 +173,7 @@ const BorrowContainer = ({ chainId, chainName, collectionAddress }: IPoolsContai
 					</h1>
 				</div>
 				<hr className="my-6 border-[#29337D52]" />
-				<div className="bg-[#ffffff] rounded-xl">
-
-
-
+				<div className="rounded-xl bg-[#ffffff]">
 					{!chainId || !chainName ? (
 						<p className="fallback-text text-sm font-normal">
 							Network not supported. No pools on {chainName || 'this network'}.
@@ -215,13 +210,13 @@ const BorrowContainer = ({ chainId, chainName, collectionAddress }: IPoolsContai
 											</div>
 										)}
 
-										<div className="shadow min-h-[60px] flex items-center p-4 font-semibold text-xl justify-between">
+										<div className="flex min-h-[60px] items-center justify-between p-4 text-xl font-semibold shadow">
 											<div className="-my-1 min-h-[1.25rem] text-sm font-medium text-[#404040]">
 												{!isConnected
 													? `Connect wallet to view your ${collectionName || ''} NFTs`
 													: fetchingNftsList || fetchingCollectionName
-														? ''
-														: `You have ${nftsList.length} ${collectionName || ''} NFTs to use as collateral`}
+													? ''
+													: `You have ${nftsList.length} ${collectionName || ''} NFTs to use as collateral`}
 											</div>
 											<label className="relative">
 												<span className="absolute top-[13px] left-[8px] text-xs">Sort By : </span>
@@ -240,8 +235,6 @@ const BorrowContainer = ({ chainId, chainName, collectionAddress }: IPoolsContai
 									</>
 								)}
 							</div>
-
-
 
 							<div className="flex w-full justify-between">
 								{isError && (
@@ -275,8 +268,8 @@ const BorrowContainer = ({ chainId, chainName, collectionAddress }: IPoolsContai
 								)}
 								{!isError && !isLoading && sortedData.length !== 0 && (
 									<>
-										<div className="flex flex-col gap-9 w-1/4 m-4">
-											<div className="font-medium text-xl">Filter</div>
+										<div className="m-4 flex w-1/4 flex-col gap-9">
+											<div className="text-xl font-medium">Filter</div>
 
 											<Slider
 												key={'interestRates' + poolsInterestRange.join('')}
@@ -319,12 +312,10 @@ const BorrowContainer = ({ chainId, chainName, collectionAddress }: IPoolsContai
 										</div>
 									</>
 								)}
-
 							</div>
 						</div>
 					)}
 				</div>
-
 			</Layout>
 
 			<Suspense fallback={null}>

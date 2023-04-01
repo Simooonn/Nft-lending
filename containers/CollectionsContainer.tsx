@@ -19,38 +19,38 @@ const Collections = ({ chainId, chainName, data }: ICollections) => {
 
 	const { view } = router.query
 	return (
-		<div className="bg-[#ffffff] rounded-xl">
-			<div className="shadow min-h-[80px] flex items-center p-4 font-semibold text-xl">
+		<div className="rounded-xl bg-[#ffffff]">
+			<div className="flex min-h-[80px] items-center p-4 text-xl font-semibold shadow">
 				<div>NFT collections</div>
 			</div>
-			<ul className="flex flex-col overflow-x-auto shadow bg-[#EFF6FF]">
-			<li className="grid min-h-[60px] grid-cols-3 justify-between gap-4 p-4 shadow md:grid-cols-[280px_repeat(5,_120px)] xl:grid-cols-[360px_repeat(5,_120px)] font-medium text-lg">
-				{/*<div className="flex gap-4">*/}
-				{/*	<div className="hidden md:block">*/}
-				{/*		<h1 className="font-semibold">Collections</h1>*/}
-				{/*	</div>*/}
-				{/*</div>*/}
-				<div className="flex flex-col justify-center">
-					<h1 className="min-h-[1.5rem]">Collections</h1>
-				</div>
-				<div className="flex flex-col justify-center">
-					<h1 className="min-h-[1.5rem]">Currency</h1>
-				</div>
-				<div className="flex flex-col justify-center">
-					<h1 className="min-h-[1.5rem]">APR Up To</h1>
-				</div>
+			<ul className="flex flex-col overflow-x-auto bg-[#EFF6FF] shadow">
+				<li className="grid min-h-[60px] grid-cols-3 justify-between gap-4 p-4 text-lg font-medium shadow md:grid-cols-[280px_repeat(5,_120px)] xl:grid-cols-[360px_repeat(5,_120px)]">
+					{/*<div className="flex gap-4">*/}
+					{/*	<div className="hidden md:block">*/}
+					{/*		<h1 className="font-semibold">Collections</h1>*/}
+					{/*	</div>*/}
+					{/*</div>*/}
+					<div className="flex flex-col justify-center">
+						<h1 className="min-h-[1.5rem]">Collections</h1>
+					</div>
+					<div className="flex flex-col justify-center">
+						<h1 className="min-h-[1.5rem]">Currency</h1>
+					</div>
+					<div className="flex flex-col justify-center">
+						<h1 className="min-h-[1.5rem]">APR Up To</h1>
+					</div>
 
-				<div className="flex flex-col justify-center">
-					<h1 className="min-h-[1.5rem]">Currency</h1>
-				</div>
+					<div className="flex flex-col justify-center">
+						<h1 className="min-h-[1.5rem]">Currency</h1>
+					</div>
 
-				<div className="flex flex-col justify-center">
-					<h1 className="min-h-[1.5rem]">Total Loans</h1>
-				</div>
-				<div className="flex flex-col justify-center">
-					<h1 className="min-h-[1.5rem]">Actions</h1>
-				</div>
-			</li>
+					<div className="flex flex-col justify-center">
+						<h1 className="min-h-[1.5rem]">Total Loans</h1>
+					</div>
+					<div className="flex flex-col justify-center">
+						<h1 className="min-h-[1.5rem]">Actions</h1>
+					</div>
+				</li>
 			</ul>
 
 			<ul className="mb-9 flex flex-col overflow-x-auto rounded-xl">
@@ -59,7 +59,6 @@ const Collections = ({ chainId, chainName, data }: ICollections) => {
 				))}
 			</ul>
 		</div>
-
 	)
 	// const isListView = view === 'list'
 	//

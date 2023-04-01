@@ -32,78 +32,77 @@ export function BorrowPoolItem({ data, setSelectedPool, chainId }: IBorrowPoolIt
 	const totalDeposited = (Number(data.totalDeposited) / 1e18).toFixed(2)
 
 	const isPoolDisabled = checkIfPoolDisabled(data)
-	const bg11 = isPoolDisabled ? " bg-[#F4F4F4]":" bg-[#ffffff]"
+	const bg11 = isPoolDisabled ? ' bg-[#F4F4F4]' : ' bg-[#ffffff]'
 
 	return (
-		<div className={"flex flex-wrap  justify-between gap-6 p-5 md:gap-8 2xl:gap-12" + bg11}>
-				<div className="flex min-w-[45%] flex-shrink-0 gap-2 sm:min-w-[8.25rem]">
-					<Image
-						src="/assets/ethereum.png"
-						height={40}
-						width={40}
-						className="h-10 w-10 flex-shrink-0 rounded-full object-contain"
-						alt="ethereum"
-					/>
-					<div>
-						<p className="min-h-[1.5rem] font-semibold">{data?.pricePerNft ?? ''}</p>
-						<p className="whitespace-nowrap text-sm font-normal text-[#D4D4D8]">Loan Amount</p>
-					</div>
+		<div className={'flex flex-wrap  justify-between gap-6 p-5 md:gap-8 2xl:gap-12' + bg11}>
+			<div className="flex min-w-[45%] flex-shrink-0 gap-2 sm:min-w-[8.25rem]">
+				<Image
+					src="/assets/ethereum.png"
+					height={40}
+					width={40}
+					className="h-10 w-10 flex-shrink-0 rounded-full object-contain"
+					alt="ethereum"
+				/>
+				<div>
+					<p className="min-h-[1.5rem] font-semibold">{data?.pricePerNft ?? ''}</p>
+					<p className="whitespace-nowrap text-sm font-normal text-[#D4D4D8]">Loan Amount</p>
 				</div>
-				<div className="min-w-[45%] flex-shrink-0 sm:min-w-[5.625rem]">
-					<p className="min-h-[1.5rem] font-semibold">
-						{/* @ts-ignore */}
-						{dayjs(new Date(new Date().getTime() + data.maxLoanLength * 1000)).toNow(true)}
-					</p>
-					<p className="whitespace-nowrap text-sm font-normal text-[#D4D4D8]">Max Duration</p>
-				</div>
-				<div className="min-w-[45%] flex-shrink-0 sm:min-w-[5.5rem]">
-					<Tooltip content={`Yearly Interest: ${formatCurrentAnnualInterest(data.currentAnnualInterest)}%`}>
-						<p className={"min-h-[1.5rem] font-semibold w-24 " + styles.textOverflow}>{`${formatDailyInterest(data.currentAnnualInterest)}%`}</p>
-					</Tooltip>
-					<p className="whitespace-nowrap text-sm font-normal text-[#D4D4D8]">Daily Interest</p>
-				</div>
-				<div className="min-w-[45%] flex-shrink-0 sm:min-w-[7rem]">
-					<p className="min-h-[1.5rem] font-semibold">
-						<Tooltip
-							content={`Borrowable Now: ${data.maxNftsToBorrow}`}
-						>{`${poolBalance} / ${totalDeposited} ${config.nativeCurrency?.symbol}`}</Tooltip>
-					</p>
-					<p className="whitespace-nowrap text-sm font-normal text-[#D4D4D8]">Pool Liquidity</p>
-				</div>
-				<div className="flex-shrink-0 lg:max-[1300px]:min-w-[45%] max-[948px]:min-w-[45%]">
-					<a
-						target="_blank"
-						rel="noreferrer noopener"
-						href={`${config.blockExplorer.url}/address/${data.address}`}
-						className="min-h-[1.5rem] font-semibold text-[#3070FB]"
-					>
-						{data.name + (poolDeployer ? ` by ${poolDeployer}` : '')}
-					</a>
-
-					<p className="text-sm font-normal text-[#D4D4D8]">Pool Info</p>
-				</div>
-				{isPoolDisabled ? (
-					<button className="ml-auto rounded-md bg-[#5E5E5E] px-4 py-[0.625rem] font-semibold max-sm:w-full text-[#FFFFFF]" >
-						<Tooltip content={isPoolDisabled}>Pool Disabled</Tooltip>
-					</button>
-
-
-					) : (
-					// #3046FB
-					<button
-						className="ml-auto rounded-md bg-[#3B82F6] px-4 py-[0.625rem] font-semibold max-sm:w-full text-[#FFFFFF]"
-						onClick={() => {
-							setSelectedPool(data.address)
-							router.push({ pathname: router.pathname, query: { ...router.query, cart: true } }, undefined, {
-								shallow: true
-							})
-						}}
-					>
-						Select Loan
-					</button>
-				)}
 			</div>
+			<div className="min-w-[45%] flex-shrink-0 sm:min-w-[5.625rem]">
+				<p className="min-h-[1.5rem] font-semibold">
+					{/* @ts-ignore */}
+					{dayjs(new Date(new Date().getTime() + data.maxLoanLength * 1000)).toNow(true)}
+				</p>
+				<p className="whitespace-nowrap text-sm font-normal text-[#D4D4D8]">Max Duration</p>
+			</div>
+			<div className="min-w-[45%] flex-shrink-0 sm:min-w-[5.5rem]">
+				<Tooltip content={`Yearly Interest: ${formatCurrentAnnualInterest(data.currentAnnualInterest)}%`}>
+					<p className={'min-h-[1.5rem] w-24 font-semibold ' + styles.textOverflow}>{`${formatDailyInterest(
+						data.currentAnnualInterest
+					)}%`}</p>
+				</Tooltip>
+				<p className="whitespace-nowrap text-sm font-normal text-[#D4D4D8]">Daily Interest</p>
+			</div>
+			<div className="min-w-[45%] flex-shrink-0 sm:min-w-[7rem]">
+				<p className="min-h-[1.5rem] font-semibold">
+					<Tooltip
+						content={`Borrowable Now: ${data.maxNftsToBorrow}`}
+					>{`${poolBalance} / ${totalDeposited} ${config.nativeCurrency?.symbol}`}</Tooltip>
+				</p>
+				<p className="whitespace-nowrap text-sm font-normal text-[#D4D4D8]">Pool Liquidity</p>
+			</div>
+			<div className="flex-shrink-0 lg:max-[1300px]:min-w-[45%] max-[948px]:min-w-[45%]">
+				<a
+					target="_blank"
+					rel="noreferrer noopener"
+					href={`${config.blockExplorer.url}/address/${data.address}`}
+					className="min-h-[1.5rem] font-semibold text-[#3070FB]"
+				>
+					{data.name + (poolDeployer ? ` by ${poolDeployer}` : '')}
+				</a>
 
+				<p className="text-sm font-normal text-[#D4D4D8]">Pool Info</p>
+			</div>
+			{isPoolDisabled ? (
+				<button className="ml-auto rounded-md bg-[#5E5E5E] px-4 py-[0.625rem] font-semibold text-[#FFFFFF] max-sm:w-full">
+					<Tooltip content={isPoolDisabled}>Pool Disabled</Tooltip>
+				</button>
+			) : (
+				// #3046FB
+				<button
+					className="ml-auto rounded-md bg-[#3B82F6] px-4 py-[0.625rem] font-semibold text-[#FFFFFF] max-sm:w-full"
+					onClick={() => {
+						setSelectedPool(data.address)
+						router.push({ pathname: router.pathname, query: { ...router.query, cart: true } }, undefined, {
+							shallow: true
+						})
+					}}
+				>
+					Select Loan
+				</button>
+			)}
+		</div>
 	)
 }
 
