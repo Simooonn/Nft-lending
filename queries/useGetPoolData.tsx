@@ -120,7 +120,7 @@ export function useGetPoolData({ chainId, poolAddress }: { chainId?: number | nu
 				graphEndpoint: config.subgraphUrl
 			}),
 		{
-			retry:false,
+			retry: false
 			// refetchInterval: 30_000
 		}
 	)

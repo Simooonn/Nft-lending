@@ -148,7 +148,7 @@
 	.placeholder-box-2 {
 		background-color: #f0f0f0;
 		animation: shimmer 2s cubic-bezier(0.31, 0.29, 0.62, 0.59) infinite;
-		background: linear-gradient(to right,  #ffffff 5%, #fafafa 20%, #f0f0f0 40%);
+		background: linear-gradient(to right, #ffffff 5%, #fafafa 20%, #f0f0f0 40%);
 		background-size: 1000px 100%;
 		border-radius: 4px;
 	}

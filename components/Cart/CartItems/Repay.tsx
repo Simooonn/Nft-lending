@@ -244,7 +244,7 @@ export function RepayItems({ chainId, userAddress }: IRepayItemProps) {
 						</button>
 					) : (
 						<button
-							className="mt-5 rounded-lg bg-blue-500 text-[#ffffff] p-2 shadow disabled:cursor-not-allowed disabled:text-[#f0f0f0]"
+							className="mt-5 rounded-lg bg-blue-500 p-2 text-[#ffffff] shadow disabled:cursor-not-allowed disabled:text-[#f0f0f0]"
 							disabled={!repayLoans}
 							onClick={() => repayLoans?.()}
 						>
