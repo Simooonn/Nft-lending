@@ -81,9 +81,11 @@ export function DashboardLinks() {
 			<nav className="mr-auto hidden w-full items-center gap-3 rounded-xl bg-white p-1 text-base font-semibold text-black sm:w-auto lg:flex">
 				<Image src="/assets/pro-logo1.png" alt="" className={"hidden sm:block " + styles.headerLogo} height={100} width={217} priority />
 				<AppLink name="Borrow" path="/" />
+				<AppLink name="Buy" path="/buy" />
 				<AppLink name="Repay" path="/repay" />
 				<AppLink name="Create Pool" path="/create" />
-				<AppLink name="Aggregator" path="/aggregator" />
+				<AppLink name="Lend" path="/lend" />
+				{/*<AppLink name="Aggregator" path="/aggregator" />*/}
 			</nav>
 		</>
 	)

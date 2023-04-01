@@ -45,19 +45,19 @@ export const Slider = ({
 				onValueChange={(newValue) => setValue(newValue)}
 				onValueCommit={onValueCommit}
 			>
-				<RadixSlider.Track className="relative h-2 w-full rounded-[30px] bg-[#22242A]">
-					<RadixSlider.Range className="absolute h-full rounded-full bg-[#3046FB]" />
+				<RadixSlider.Track className="relative h-2 w-full rounded-[30px] bg-[#627EEA]">
+					<RadixSlider.Range className="absolute h-full rounded-full bg-[#C3DAFF]" />
 				</RadixSlider.Track>
 				<RadixSlider.Thumb className="relative block h-3 w-3 rounded-full border-2 border-white bg-[#3046FB]">
-					<span className="absolute -top-6 -left-1 whitespace-nowrap bg-primary px-[2px] text-xs text-white">{`${value[0]} ${symbol}`}</span>
+					<span className="absolute -top-6 -left-1 whitespace-nowrap bg-[#ffffff] px-[2px] text-xs text-black">{`${value[0]} ${symbol}`}</span>
 				</RadixSlider.Thumb>
 				{isValidRange && (
 					<RadixSlider.Thumb className="relative block h-3 w-3 rounded-full border-2 border-white bg-[#3046FB]">
-						<span className="absolute -top-6 -right-1 whitespace-nowrap bg-primary px-[2px] text-xs text-white">{`${value[1]} ${symbol}`}</span>
+						<span className="absolute -top-6 -right-1 whitespace-nowrap bg-[#ffffff] px-[2px] text-xs text-black">{`${value[1]} ${symbol}`}</span>
 					</RadixSlider.Thumb>
 				)}
 			</RadixSlider.Root>
-			<span className="text-sm text-[#D4D4D8]">{label}</span>
+			<span className="text-sm font-medium">{label}</span>
 		</label>
 	)
 }

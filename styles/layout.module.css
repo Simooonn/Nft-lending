@@ -1,10 +1,14 @@
 .layoutHeader{
 	background-color: #ffffff;
+	padding: 12px 200px 12px 55px;
 	/*width: 100%;*/
 }
 .headerLogo{
-	padding: 0 0 0 55px;
-	/*height: 56px;*/
+	margin: 0 63px 0 0;
+	height: 56px;
 	/*background-color: #ffffff;*/
-	/*width: 100%;*/
+	width: 100%;
+}
+.connectButton{
+	background: rgba(59, 130, 246, 1);
 }
