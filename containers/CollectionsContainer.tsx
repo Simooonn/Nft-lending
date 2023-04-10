@@ -121,6 +121,7 @@ const Collections = ({ chainId, chainName, data }: ICollections) => {
 
 const CollectionsContainer = ({ chainId, chainName }: ICollectionContainerProps) => {
 	const { data: collections } = useGetAllCollections({ chainId })
+	console.log('collections-console', collections)
 
 	return (
 		<>

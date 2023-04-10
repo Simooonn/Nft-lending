@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { chainConfig } from '~/lib/constants'
 import { useGetAllPools } from '~/queries/useGetAllPools'
+import { formatDailyInterest } from '~/utils'
 
 interface IBorrowCollectionItemProps {
 	data: { name: string; address: string; imgUrl: string }
@@ -9,10 +10,9 @@ interface IBorrowCollectionItemProps {
 }
 
 export function BorrowCollectionItemList({ data, chainName, chainId }: IBorrowCollectionItemProps) {
-	const { data: pools } = useGetAllPools({ chainId, collectionAddress: data.address })
-
+	// const { data: pools } = useGetAllPools({ chainId, collectionAddress: data.address })
+	let { data: pools } = useGetAllPools({ chainId, collectionAddress: data.address })
 	const chainSymbol = chainConfig(chainId)?.nativeCurrency?.symbol
-
 	const poolsWithLiquidity = pools?.filter((pool) => Number(pool.totalDeposited) / 1e18 > 0.01)
 	const poolsTotalAvailableBalance =
 		poolsWithLiquidity && poolsWithLiquidity?.map((pool) => Number(pool.poolBalance) / 1e18).reduce((a, b) => a + b, 0)
@@ -23,6 +23,12 @@ export function BorrowCollectionItemList({ data, chainName, chainId }: IBorrowCo
 
 	const floorPrice =
 		pools && pools.length > 0 && pools[0].oraclePrice ? (Number(pools[0].oraclePrice) / 1e18).toFixed(2) : null
+
+	//过滤掉日化利率小于2%的pool
+	pools = pools?.filter((item, index) => {
+		const dailyInterest = formatDailyInterest(item.currentAnnualInterest)
+		return parseFloat(dailyInterest) >= 2
+	})
 
 	return (
 		<li className="grid min-h-[80px] grid-cols-3 justify-between gap-4 p-4 shadow md:grid-cols-[280px_repeat(5,_120px)] xl:grid-cols-[360px_repeat(5,_120px)]">

@@ -48,7 +48,13 @@ const BorrowContainer = ({ chainId, chainName, collectionAddress }: IPoolsContai
 
 	const { data: oracle } = useGetOracle({ nftContractAddress: collectionAddress, chainId })
 
-	const { data, isError, isLoading } = useGetAllPools({ chainId, collectionAddress })
+	let { data, isError, isLoading } = useGetAllPools({ chainId, collectionAddress })
+
+	//过滤掉日化利率小于2%的pool
+	data = data?.filter((item, index) => {
+		const dailyInterest = formatDailyInterest(item.currentAnnualInterest)
+		return parseFloat(dailyInterest) >= 2
+	})
 
 	const { isConnected } = useAccount()
 

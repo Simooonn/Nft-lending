@@ -30,14 +30,12 @@ export async function getAllCollections({ chainId }: { chainId?: number | null }
 	})
 
 	const nftTokenListCollections = tokenListToCollection(await getNftTokenList())
-	console.log('nftTokenListCollections', nftTokenListCollections)
 
 	const verified: Array<ICollection> = []
 
 	const notVerified: Array<ICollection> = []
 
 	Array.from(collections).forEach(({ address, totalDeposited, name: collectionName }) => {
-		console.log('aabb22')
 		const verifiedCollectionIndex = verifiedCollections[chainId || 1].findIndex(
 			(collectionAddress) => collectionAddress.toLowerCase() == address.toLowerCase()
 		)
@@ -79,7 +77,8 @@ export function useGetAllCollections({ chainId }: { chainId?: number | null }) {
 				chainId
 			}),
 		{
-			retry: false
+			retry: false,
+			refetchOnWindowFocus: false
 			// refetchInterval: 30_000
 		}
 	)

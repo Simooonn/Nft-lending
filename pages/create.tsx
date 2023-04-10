@@ -63,6 +63,10 @@ const ManagePools: NextPage = () => {
 				throw new Error('Invalid arguments')
 			}
 
+			if (minimumInterest < 730) {
+				throw new Error('Daily chemical interest rate cannot be less than 2% !')
+			}
+
 			mutate(
 				formatCreatePoolFormInputs({
 					nftAddress: form.nftAddress.value,

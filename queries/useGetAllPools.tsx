@@ -391,7 +391,8 @@ export function useGetAllPools({
 				skipOracle
 			}),
 		{
-			retry: false
+			retry: false,
+			refetchOnWindowFocus: false
 			// refetchInterval: 30_000
 		}
 	)
