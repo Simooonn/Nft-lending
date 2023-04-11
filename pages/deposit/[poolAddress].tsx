@@ -66,7 +66,7 @@ const Manage: NextPage<IPageProps> = ({ poolAddress }) => {
 							</span>
 							<input
 								name="amountToDeposit"
-								className="input-field bg-[#202020]"
+								className="input-field bg-[#ffffff]"
 								autoComplete="off"
 								autoCorrect="off"
 								type="text"
@@ -82,21 +82,21 @@ const Manage: NextPage<IPageProps> = ({ poolAddress }) => {
 						</label>
 						{!isConnected ? (
 							<button
-								className="mt-auto min-h-[2.5rem] min-w-[7.5rem] rounded-lg bg-[#29337D] p-2 text-center text-sm text-white disabled:cursor-not-allowed"
+								className="mt-auto min-h-[2.5rem] min-w-[7.5rem] rounded-lg bg-[#3B82F6] p-2 text-center text-sm text-white disabled:cursor-not-allowed"
 								onClick={openConnectModal}
 							>
 								Connect Wallet
 							</button>
 						) : chain?.unsupported ? (
 							<button
-								className="mt-auto min-h-[2.5rem] min-w-[7.5rem] rounded-lg bg-[#29337D] p-2 text-center text-sm text-white disabled:cursor-not-allowed"
+								className="mt-auto min-h-[2.5rem] min-w-[7.5rem] rounded-lg bg-[#3B82F6] p-2 text-center text-sm text-white disabled:cursor-not-allowed"
 								onClick={openChainModal}
 							>
 								Switch Network
 							</button>
 						) : (
 							<button
-								className="mt-auto min-h-[2.5rem] min-w-[7.5rem] rounded-lg bg-[#29337D] p-2 text-center text-sm text-white disabled:cursor-not-allowed"
+								className="mt-auto min-h-[2.5rem] min-w-[7.5rem] rounded-lg bg-[#3B82F6] p-2 text-center text-sm text-white disabled:cursor-not-allowed"
 								disabled={!deposit || approvingDeposit || confirmingDeposit || !poolAddress ? true : false}
 							>
 								{approvingDeposit || confirmingDeposit ? <BeatLoader /> : 'Confirm Deposit'}
