@@ -47,7 +47,7 @@ export default function Layout({ children, className, ...props }: ILayoutProps) 
 	return (
 		<>
 			<Head>
-				<title>ProTradex</title>
+				<title>元宇宙+历史人物交互场景解决方案</title>
 				<meta name="description" content="NFT-collateralized loans for long tail markets." />
 			</Head>
 
@@ -57,7 +57,7 @@ export default function Layout({ children, className, ...props }: ILayoutProps) 
 				<ConnectButton />
 				{/*<ConnectButtonNew  />*/}
 
-				<span className="flex items-center justify-end gap-3 max-[445px]:ml-auto">
+				<span className="max-[445px]:ml-auto flex items-center justify-end gap-3">
 					{/*<Notifications />*/}
 					{/*<CartLink />*/}
 					{/*<Menu />*/}
@@ -73,53 +73,123 @@ export default function Layout({ children, className, ...props }: ILayoutProps) 
 					{children}
 				</main>
 			</React.Suspense>
-			<div style={{ margin: '3.6em 10% 4.6em 10%' }}>
-				<div className={'flex flex-row'}>
-					<div className={'flex flex-col gap-3'} style={{ width: '30%' }}>
-						<Image height={100} width={217} src={ImgLogo1} alt="ImgCopy" />
-						<div className={'flex flex-col gap-2'}>
-							<div>With our platform, you can purchase a larger amount of NFTs than you could ever imagine. </div>
-							<div>
-								Our leverage trading platform enables you to amplify your profits and diversify your portfolio across
-								different NFT collections.
-							</div>
-						</div>
-					</div>
-					<div style={{ width: '30%' }} className={'flex flex-col gap-10'}>
-						<div className={'flex flex-col'}>
-							<div className={'text-[#2D7AF9]'}>Join the community</div>
-							<div className={'text-2xl font-semibold text-[#5865F2]'}>Follow our channels</div>
-						</div>
-						<div className={'flex flex-row gap-10  text-sm text-[#000A77]'}>
-							<div className={'flex flex-col gap-8'}>
-								<div
-									className={'cursor_pointer flex flex-row items-center gap-3'}
-									onClick={() => (window.location.href = 'https://discord.com/invite/protradex')}
-								>
-									<Image height={32} width={32} src={IconDiscord} alt="IconDiscord" />
-									<div>Discord</div>
-								</div>
-								<div
-									onClick={() => (window.location.href = 'https://github.com/Protradex')}
-									className={'cursor_pointer flex flex-row items-center gap-3'}
-								>
-									<Image height={32} width={32} src={IconGithub} alt="IconGithub" />
-									<div>Github</div>
-								</div>
-							</div>
-							<div className={'flex flex-col gap-8'}>
-								<div
-									onClick={() => (window.location.href = 'https://twitter.com/Pro_Tradex')}
-									className={'cursor_pointer flex flex-row items-center gap-3'}
-								>
-									<Image height={32} width={32} src={IconTwitter} alt="IconTwitter" />
-									<div>Twitter</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			{/*<div className="Desktop mx-auto xsm:mt-20 xsm:w-full xsm:p-2 sm:mt-20 sm:w-full sm:p-2 md:mt-40 md:w-4/5 ">*/}
+			{/*	<div className={'md:flex md:justify-between'}>*/}
+			{/*		<div className={'md:flex md:w-1/3 md:flex-col md:gap-3'}>*/}
+			{/*			<Image height={100} width={217} src={ImgLogo1} alt="ImgCopy" className="xsm:mx-auto  sm:mx-auto" />*/}
+			{/*			<div className={'xsm:mt-5 xsm:text-center sm:mb-5 sm:text-center md:flex md:flex-col md:gap-0.5'}>*/}
+			{/*				<div>With our platform, you can purchase a larger</div>*/}
+			{/*				<div> amount of NFTs than you could ever imagine. </div>*/}
+			{/*			</div>*/}
+			{/*		</div>*/}
+
+			{/*		<div className={'md:flex md:w-1/3 md:flex-col md:gap-3'}>*/}
+			{/*			<div className={'foot_some_text flex h-[57px] items-center justify-center font-semibold'}>Some Text</div>*/}
+			{/*			<div className={'xsm:mt-5 xsm:text-center sm:mb-5 sm:text-center md:flex md:flex-col md:gap-0.5'}>*/}
+			{/*				<div>Our leverage trading platform enables you to</div>*/}
+			{/*				<div>amplify your profits and diversify your portfolio </div>*/}
+			{/*				<div>across different NFT collections. </div>*/}
+			{/*			</div>*/}
+			{/*		</div>*/}
+
+			{/*		<div className={'md:flex md:w-1/3 md:flex-col md:gap-3'}>*/}
+			{/*			<div className={'flex flex-col gap-1 pl-10'}>*/}
+			{/*				<div className={'text-[#2D7AF9] xsm:mb-1 sm:mb-1'}>Join the community</div>*/}
+			{/*				<div className={'text-2xl font-semibold text-[#5865F2]'}>Follow our channels</div>*/}
+			{/*			</div>*/}
+			{/*			<div*/}
+			{/*				className={*/}
+			{/*					'flex flex-row gap-10  text-sm text-[#000A77] xsm:mt-5 xsm:justify-around sm:mt-5 sm:justify-around'*/}
+			{/*				}*/}
+			{/*			>*/}
+			{/*				<div className={'flex flex-col gap-8'}>*/}
+			{/*					<div*/}
+			{/*						className={'cursor_pointer flex flex-row items-center gap-3'}*/}
+			{/*						onClick={() => (window.location.href = 'https://discord.com/invite/protradex')}*/}
+			{/*					>*/}
+			{/*						<Image height={32} width={32} src={IconDiscord} alt="IconDiscord" />*/}
+			{/*						<div>Discord</div>*/}
+			{/*					</div>*/}
+			{/*					<div*/}
+			{/*						onClick={() => (window.location.href = 'https://github.com/Protradex')}*/}
+			{/*						className={'cursor_pointer flex flex-row items-center gap-3'}*/}
+			{/*					>*/}
+			{/*						<Image height={32} width={32} src={IconGithub} alt="IconGithub" />*/}
+			{/*						<div>Github</div>*/}
+			{/*					</div>*/}
+			{/*				</div>*/}
+			{/*				<div className={'flex flex-col gap-8'}>*/}
+			{/*					<div*/}
+			{/*						onClick={() => (window.location.href = 'https://twitter.com/Pro_Tradex')}*/}
+			{/*						className={'cursor_pointer flex flex-row items-center gap-3'}*/}
+			{/*					>*/}
+			{/*						<Image height={32} width={32} src={IconTwitter} alt="IconTwitter" />*/}
+			{/*						<div>Twitter</div>*/}
+			{/*					</div>*/}
+			{/*				</div>*/}
+			{/*			</div>*/}
+			{/*		</div>*/}
+			{/*	</div>*/}
+			{/*</div>*/}
+
+			{/*<div className="Mobile xsm:mt-20 xsm:w-full xsm:p-2 sm:mt-20 sm:w-full sm:p-2 md:mt-40 md:w-4/5 ">*/}
+			{/*	<div className={'md:flex md:justify-between'}>*/}
+			{/*		<div className={'md:flex md:w-1/3 md:flex-col md:gap-3'}>*/}
+			{/*			<Image height={100} width={217} src={ImgLogo1} alt="ImgCopy" className="xsm:mx-auto  sm:mx-auto" />*/}
+			{/*			<div className={'xsm:mt-5 xsm:text-center sm:mb-5 sm:text-center md:flex md:flex-col md:gap-0.5'}>*/}
+			{/*				<div>With our platform, you can purchase a larger</div>*/}
+			{/*				<div> amount of NFTs than you could ever imagine. </div>*/}
+			{/*			</div>*/}
+			{/*		</div>*/}
+
+			{/*		<div className={'md:flex md:w-1/3 md:flex-col md:gap-3'}>*/}
+			{/*			<div className={'foot_some_text flex h-[57px] items-center justify-center font-semibold'}>Some Text</div>*/}
+			{/*			<div className={'xsm:mt-5 xsm:text-center sm:mb-5 sm:text-center md:flex md:flex-col md:gap-0.5'}>*/}
+			{/*				<div>Our leverage trading platform enables you to</div>*/}
+			{/*				<div>amplify your profits and diversify your portfolio </div>*/}
+			{/*				<div>across different NFT collections. </div>*/}
+			{/*			</div>*/}
+			{/*		</div>*/}
+
+			{/*		<div className={'py-16 md:flex md:w-1/3 md:flex-col md:gap-3'}>*/}
+			{/*			<div className={'flex flex-col items-center gap-1 pl-10'}>*/}
+			{/*				<div className={'text-[#2D7AF9] xsm:mb-1 sm:mb-1'}>Join the community</div>*/}
+			{/*				<div className={'text-2xl font-semibold text-[#5865F2]'}>Follow our channels</div>*/}
+			{/*			</div>*/}
+			{/*			<div*/}
+			{/*				className={*/}
+			{/*					'flex flex-row gap-10  text-sm text-[#000A77] xsm:mt-5 xsm:justify-around sm:mt-5 sm:justify-around'*/}
+			{/*				}*/}
+			{/*			>*/}
+			{/*				<div className={'flex flex-col gap-8'}>*/}
+			{/*					<div*/}
+			{/*						className={'cursor_pointer flex flex-row items-center gap-3'}*/}
+			{/*						onClick={() => (window.location.href = 'https://discord.com/invite/protradex')}*/}
+			{/*					>*/}
+			{/*						<Image height={32} width={32} src={IconDiscord} alt="IconDiscord" />*/}
+			{/*						<div>Discord</div>*/}
+			{/*					</div>*/}
+			{/*					<div*/}
+			{/*						onClick={() => (window.location.href = 'https://github.com/Protradex')}*/}
+			{/*						className={'cursor_pointer flex flex-row items-center gap-3'}*/}
+			{/*					>*/}
+			{/*						<Image height={32} width={32} src={IconGithub} alt="IconGithub" />*/}
+			{/*						<div>Github</div>*/}
+			{/*					</div>*/}
+			{/*				</div>*/}
+			{/*				<div className={'flex flex-col gap-8'}>*/}
+			{/*					<div*/}
+			{/*						onClick={() => (window.location.href = 'https://twitter.com/Pro_Tradex')}*/}
+			{/*						className={'cursor_pointer flex flex-row items-center gap-3'}*/}
+			{/*					>*/}
+			{/*						<Image height={32} width={32} src={IconTwitter} alt="IconTwitter" />*/}
+			{/*						<div>Twitter</div>*/}
+			{/*					</div>*/}
+			{/*				</div>*/}
+			{/*			</div>*/}
+			{/*		</div>*/}
+			{/*	</div>*/}
+			{/*</div>*/}
 		</>
 	)
 }

@@ -14,6 +14,91 @@
 		background-size: cover;
 		/*background-attachment:fixed;*/
 	}
+
+	.home_background1 {
+		margin: 0px;
+		min-width: 100vw;
+		min-height: 52.75vw;
+		background: url('/assets/bg1.gif') no-repeat;
+		background-size: cover;
+		/*background-attachment:fixed;*/
+	}
+
+	.home_background1_title1 {
+		background: radial-gradient(133% 5729.51% at -2.68% -12.49%, #fcdeff 0%, #c8eeff 100%)
+			/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		text-fill-color: transparent;
+	}
+
+	.home_background1_title2 {
+		background: linear-gradient(0deg, #000d70, #000d70), linear-gradient(90.96deg, #7d00b8 6.09%, #001be3 65.58%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		text-fill-color: transparent;
+	}
+
+	.home_background2 {
+		margin: 0px;
+		min-width: 100vw;
+		min-height: 47.66vw;
+		background: url('/assets/bg2.jpg') no-repeat;
+		background-size: cover;
+		/*background-attachment:fixed;*/
+	}
+
+	.home_background3 {
+		margin: 0px;
+		min-width: 100vw;
+		min-height: 33.44vw;
+		background: url('/assets/bg3.jpg') no-repeat;
+		background-size: cover;
+		ackground: #848484;
+		/*background-attachment:fixed;*/
+	}
+	.home_background4 {
+		margin: 0px;
+		min-width: 100vw;
+		min-height: 83.18vw;
+		background: url('/assets/bg4.jpg') no-repeat;
+		background-size: cover;
+		/*background-attachment:fixed;*/
+	}
+	.home_background4_bg {
+		background: linear-gradient(90deg, #f0f9ff 0%, #fff7f4 100%);
+		border: 2px solid rgba(147, 197, 253, 0.5);
+		box-shadow: 5px -2px 26px rgba(147, 197, 253, 0.15), -8px 9px 18px rgba(151, 71, 255, 0.15);
+		border-radius: 16px;
+	}
+	.home_background4_btn {
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 26px;
+		padding: 11px 42px;
+		/* identical to box height, or 26px */
+
+		color: #ffffff;
+		background: linear-gradient(90deg, #ab40ff 0%, #10a0ff 100%);
+		border: 1px solid rgba(148, 64, 255, 0.62);
+		box-shadow: -3px 3px 15px rgba(151, 71, 255, 0.41);
+		border-radius: 12px;
+	}
+
+	.foot_some_text {
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 140%;
+		/* identical to box height, or 34px */
+		color: #000845;
+	}
+
 	html {
 		scroll-behavior: smooth;
 	}
