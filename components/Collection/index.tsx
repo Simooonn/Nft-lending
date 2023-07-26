@@ -2,6 +2,11 @@ import Link from 'next/link'
 import { chainConfig } from '~/lib/constants'
 import { useGetAllPools } from '~/queries/useGetAllPools'
 import { formatDailyInterest } from '~/utils'
+import Image from 'next/image'
+import ImgETH from '~/public/assets/img/ETH9.png'
+import ImgFire from '~/public/assets/img/fire.png'
+import ImgMoney from '~/public/assets/img/money.png'
+import React from 'react'
 
 interface IBorrowCollectionItemProps {
 	data: { name: string; address: string; imgUrl: string }
@@ -31,7 +36,7 @@ export function BorrowCollectionItemList({ data, chainName, chainId }: IBorrowCo
 	})
 
 	return (
-		<li className="grid min-h-[80px] grid-cols-3 justify-between gap-4 p-4 shadow md:grid-cols-[280px_repeat(5,_120px)] xl:grid-cols-[360px_repeat(5,_120px)]">
+		<li className="grid min-h-[60px] grid-cols-2 justify-between gap-4 p-4 pl-10 text-lg font-medium shadow md:grid-cols-[240px_repeat(4,_120px)]  xl:grid-cols-[280px_repeat(3,_150px)_250px]">
 			<div className="flex gap-4">
 				<div className="flex flex-col justify-center">
 					<div className="relative aspect-square min-h-[50px] w-full min-w-[50px]">
@@ -49,43 +54,48 @@ export function BorrowCollectionItemList({ data, chainName, chainId }: IBorrowCo
 					</div>
 				</div>
 
-				<div className="hidden md:block">
-					<h1 className="font-semibold">{data.name}</h1>
-					<p className="text-sm text-[#585858]">Collection</p>
+				<div className="flex flex-col  justify-center">
+					<h1 className="text-sm font-semibold ">{data.name}</h1>
+					<p className="text-sm text-xs text-[#585858]">Collection</p>
 				</div>
 			</div>
 
-			<div className="block md:hidden">
-				<h1 className="font-semibold">{data.name}</h1>
-				<p className="text-sm text-[#585858]">Collection</p>
+			<div className={'flex flex-row items-center gap-2'}>
+				<Image style={{ cursor: 'pointer', width: '18px', height: '18px' }} src={ImgETH} alt="ImgETH" />
+				<div className="flex flex-col justify-center">
+					<h1 className="min-h-[1.5rem] text-sm">{floorPrice ? `${floorPrice} ${chainSymbol}` : ''}</h1>
+					<p className="text-sm text-xs text-[#585858]">Floor</p>
+				</div>
 			</div>
 
-			<div className="flex flex-col justify-center">
-				<h1 className="min-h-[1.5rem]">{floorPrice ? `${floorPrice} ${chainSymbol}` : ''}</h1>
-				<p className="text-sm text-[#585858]">Floor</p>
+			<div className={'flex flex-row items-center gap-2'}>
+				<Image style={{ cursor: 'pointer', width: '18px', height: '18px' }} src={ImgFire} alt="ImgFire" />
+				<div className="flex flex-col justify-center">
+					<h1 className="min-h-[1.5rem] text-sm">{poolsMaxApr ? `${poolsMaxApr.toFixed(2)}%` : ''}</h1>
+					<p className="text-sm text-xs text-[#585858]">APR up to</p>
+				</div>
 			</div>
 
-			<div className="flex flex-col justify-center">
-				<h1 className="min-h-[1.5rem]">{poolsMaxApr ? `${poolsMaxApr.toFixed(2)}%` : ''}</h1>
-				<p className="text-sm text-[#585858]">APR up to</p>
+			<div className={'flex flex-row items-center gap-2'}>
+				<Image style={{ cursor: 'pointer', width: '18px', height: '18px' }} src={ImgMoney} alt="ImgMoney" />
+				<div className="flex flex-col justify-center">
+					<h1 className="min-h-[1.5rem]">{pools?.length}</h1>
+					<p className="text-sm text-[#585858]">Loans</p>
+				</div>
 			</div>
 
-			<div className="flex flex-col justify-center">
-				<h1 className="min-h-[1.5rem]">
-					{poolsTotalAvailableBalance && `${poolsTotalAvailableBalance.toFixed(2)} ${chainSymbol}`}
-				</h1>
-				<p className="text-sm text-[#5AC16C]">Available</p>
-			</div>
-
-			<div className="flex flex-col justify-center">
-				<h1 className="min-h-[1.5rem]">{pools?.length}</h1>
-				<p className="text-sm text-[#585858]">Loans</p>
-			</div>
-
-			<div className="col-span-3 mx-auto flex w-full flex-col justify-center md:col-span-1 md:mr-0">
+			<div className="col-span-2 mx-auto flex w-full flex-col justify-center md:col-span-1 md:mr-0">
 				<Link
+					style={{
+						margin: '0 auto',
+						padding: '20px 0',
+						background: 'linear-gradient(90deg, #9747FF 0%, #3B82F6 100%)',
+						borderRadius: '12px'
+					}}
+					className=" cus-button ml-auto flex h-4 min-w-[10rem] items-center justify-center gap-1 rounded-lg bg-[#3B82F6] p-4 text-sm text-white hover:opacity-90 active:opacity-80 disabled:cursor-not-allowed disabled:text-opacity-50"
 					href={`/collections/${chainName}/${data.address}`}
-					className="w-full min-w-[100px] rounded-xl bg-[#3B82F6] p-2 text-center text-sm text-[#ffffff]"
+
+					// className="w-full min-w-[100px] rounded-xl bg-[#3B82F6] p-2 text-center text-sm text-[#ffffff]"
 				>
 					View Pools
 				</Link>

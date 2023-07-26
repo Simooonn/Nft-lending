@@ -10,9 +10,10 @@ function AppLink({ name, path }: { name: string; path: string }) {
 
 	const isActive =
 		pathname === path ||
-		(pathname.startsWith('/borrow') && path === '/') ||
-		(pathname.startsWith('/repay') && path === '/repay') ||
-		(pathname.startsWith('/collection') && path === '/')
+		// (pathname.startsWith('/') && path === '/') ||
+		// (pathname.startsWith('/borrow') && path === '/borrow') ||
+		// (pathname.startsWith('/repay') && path === '/repay') ||
+		(pathname.startsWith('/collection') && path === '/borrow')
 
 	return (
 		<Link
@@ -55,6 +56,11 @@ export function DashboardLinks() {
 			>
 				<MenuItem as="span" className="flex">
 					<Link href="/" className="w-full px-4 py-2 hover:bg-gray-100">
+						Home
+					</Link>
+				</MenuItem>
+				<MenuItem as="span" className="flex">
+					<Link href="/borrow" className="w-full px-4 py-2 hover:bg-gray-100">
 						Borrow
 					</Link>
 				</MenuItem>
@@ -69,15 +75,10 @@ export function DashboardLinks() {
 						Repay
 					</Link>
 				</MenuItem>
-				<MenuItem as="span" className="flex">
-					<Link href="/create" className="w-full px-4 py-2 hover:bg-gray-100">
-						Create Pool
-					</Link>
-				</MenuItem>
 
 				<MenuItem as="span" className="flex">
-					<Link href="/lend" className="w-full px-4 py-2 hover:bg-gray-100">
-						Lend
+					<Link href="/buyRecord" className="w-full px-4 py-2 hover:bg-gray-100">
+						Buy Record
 					</Link>
 				</MenuItem>
 			</AriaMenu>
@@ -91,11 +92,12 @@ export function DashboardLinks() {
 					width={217}
 					priority
 				/>
-				<AppLink name="Borrow" path="/" />
+				<AppLink name="Home" path="/" />
+				<AppLink name="Borrow" path="/borrow" />
 				<AppLink name="Buy" path="/buy" />
 				<AppLink name="Repay" path="/repay" />
-				<AppLink name="Create Pool" path="/create" />
-				<AppLink name="Lend" path="/lend" />
+				{/*<AppLink name="Create Pool" path="/create" />*/}
+				<AppLink name="Buy Record" path="/buyRecord" />
 				{/*<AppLink name="Aggregator" path="/aggregator" />*/}
 			</nav>
 		</>

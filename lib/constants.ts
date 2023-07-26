@@ -29,6 +29,7 @@ export const CHAINS_CONFIGURATION: IChainConfig = {
 		oracleAddress: ORACLE_MAINNET,
 		chainProvider: new providers.JsonRpcProvider('https://eth.llamarpc.com'),
 		isTestnet: false,
+		looksrare_api_url: 'https://api.looksrare.org/api/v2',
 		subgraphUrl: 'https://api.thegraph.com/subgraphs/name/0xngmi/llamalend'
 	},
 	5: {
@@ -41,6 +42,7 @@ export const CHAINS_CONFIGURATION: IChainConfig = {
 		oracleAddress: ORACLE_GOERLI,
 		chainProvider: new providers.JsonRpcProvider('https://rpc.ankr.com/eth_goerli'),
 		isTestnet: true,
+		looksrare_api_url: 'https://api-goerli.looksrare.org/api/v2',
 		subgraphUrl: 'https://api.thegraph.com/subgraphs/name/0xngmi/llamalend-goerli'
 	}
 }
@@ -57,6 +59,7 @@ export interface IChainConfig {
 		chainProvider: providers.BaseProvider
 		isTestnet: boolean
 		subgraphUrl: string
+		looksrare_api_url: string
 	}
 }
 

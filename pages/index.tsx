@@ -1,24 +1,19 @@
-import { dehydrate, QueryClient } from '@tanstack/react-query'
-import { useNetwork } from 'wagmi'
-import CollectionsContainer from '~/containers/CollectionsContainer'
-import { getAllCollections } from '~/queries/useGetAllCollections'
+import React, { useEffect, useState } from 'react'
+import Head from 'next/head'
+import Layout from '~/components/Layout'
 
-export async function getStaticProps() {
-	const queryClient = new QueryClient()
+export default function Home() {
+	useEffect(() => {}, [])
 
-	await queryClient.prefetchQuery(['allCollections', 1], () => getAllCollections({ chainId: 1 }))
+	return (
+		<>
+			<Head>
+				<title>Home</title>
+			</Head>
 
-	return {
-		props: { dehydratedState: dehydrate(queryClient) },
-		revalidate: 120
-	}
+			<Layout>
+				<div className={'home_background'}></div>
+			</Layout>
+		</>
+	)
 }
-
-const Home = () => {
-	const { chain } = useNetwork()
-
-	// by default if wallet is not connected, show collections on ethereum
-	return <CollectionsContainer chainId={chain?.id ?? 1} chainName={chain?.name ?? 'Ethereum'} />
-}
-
-export default Home

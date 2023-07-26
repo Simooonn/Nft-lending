@@ -64,14 +64,7 @@ export function BorrowPoolItem({ data, setSelectedPool, chainId }: IBorrowPoolIt
 				</Tooltip>
 				<p className="whitespace-nowrap text-sm font-normal text-[#D4D4D8]">Daily Interest</p>
 			</div>
-			<div className="min-w-[45%] flex-shrink-0 sm:min-w-[7rem]">
-				<p className="min-h-[1.5rem] font-semibold">
-					<Tooltip
-						content={`Borrowable Now: ${data.maxNftsToBorrow}`}
-					>{`${poolBalance} / ${totalDeposited} ${config.nativeCurrency?.symbol}`}</Tooltip>
-				</p>
-				<p className="whitespace-nowrap text-sm font-normal text-[#D4D4D8]">Pool Liquidity</p>
-			</div>
+
 			<div className="flex-shrink-0 lg:max-[1300px]:min-w-[45%] max-[948px]:min-w-[45%]">
 				<a
 					target="_blank"
