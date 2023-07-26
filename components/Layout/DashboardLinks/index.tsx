@@ -4,20 +4,37 @@ import { useRouter } from 'next/router'
 import { cx } from 'cva'
 import Image from 'next/image'
 import styles from '~/styles/layout.module.css'
+import { useState } from 'react'
+import toast from 'react-hot-toast'
 
-function AppLink({ name, path }: { name: string; path: string }) {
+function AppLink({ name, path, active, onClick }: { name: string; path: string; active: string; onClick?: any }) {
 	const { pathname } = useRouter()
 
-	const isActive =
-		pathname === path ||
-		// (pathname.startsWith('/') && path === '/') ||
-		// (pathname.startsWith('/borrow') && path === '/borrow') ||
-		// (pathname.startsWith('/repay') && path === '/repay') ||
-		(pathname.startsWith('/collection') && path === '/borrow')
+	const [isActive, setActive] = useState(false)
+
+	// const isActive =
+	// 	path === active
+	// console.log('active',active);
+	// console.log('name',name);
+	// ||
+	// // (pathname.startsWith('/') && path === '/') ||
+	// // (pathname.startsWith('/borrow') && path === '/borrow') ||
+	// // (pathname.startsWith('/repay') && path === '/repay') ||
+	// (pathname.startsWith('/collection') && path === '/borrow')
+
+	const handleClick = () => {
+		toast(name + '指令已发送')
+		// console.log('active',active);
+		// 		console.log('name',name);
+		// 		if(path === active){
+		// 			setActive(true)
+		// 		}
+	}
 
 	return (
 		<Link
 			href={path}
+			onClick={handleClick}
 			className={cx(
 				'flex-1 whitespace-nowrap rounded-xl border-2 border-transparent py-[2px] px-2 text-center font-systemSans',
 				isActive ? 'border-blue-200 bg-blue-50' : ''
@@ -84,21 +101,22 @@ export function DashboardLinks() {
 			</AriaMenu>
 
 			<nav className="mr-auto hidden w-full items-center gap-3 rounded-xl bg-white p-1 text-base font-semibold text-black sm:w-auto lg:flex">
-				<Image
-					src="/assets/pro-logo1.png"
-					alt=""
-					className={'hidden sm:block ' + styles.headerLogo}
-					height={100}
-					width={217}
-					priority
-				/>
-				<AppLink name="Home" path="/" />
-				<AppLink name="Borrow" path="/borrow" />
-				<AppLink name="Buy" path="/buy" />
-				<AppLink name="Repay" path="/repay" />
-				{/*<AppLink name="Create Pool" path="/create" />*/}
-				<AppLink name="Buy Record" path="/buyRecord" />
-				{/*<AppLink name="Aggregator" path="/aggregator" />*/}
+				{/*<Image*/}
+				{/*	src="/assets/pro-logo1.png"*/}
+				{/*	alt=""*/}
+				{/*	className={'hidden sm:block ' + styles.headerLogo}*/}
+				{/*	height={100}*/}
+				{/*	width={217}*/}
+				{/*	priority*/}
+				{/*/>*/}
+				<AppLink name="安全教育" active="安全教育" path="#" />
+				<AppLink name="知识教育" active="知识教育" path="#" />
+				<AppLink name="硬件装备" active="硬件装备" path="#" />
+				<AppLink name="添加新设备" active="添加新设备" path="#" />
+				<AppLink name="溺水场景" active="溺水场景" path="#" />
+				<AppLink name="添加新场景" active="添加新场景" path="#" />
+				<AppLink name="模拟考试" active="模拟考试" path="#" />
+				<AppLink name="物资选配" active="物资选配" path="#" />
 			</nav>
 		</>
 	)

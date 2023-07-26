@@ -65,7 +65,7 @@ export function BorrowPoolItem({ data, setSelectedPool, chainId }: IBorrowPoolIt
 				<p className="whitespace-nowrap text-sm font-normal text-[#D4D4D8]">Daily Interest</p>
 			</div>
 
-			<div className="flex-shrink-0 lg:max-[1300px]:min-w-[45%] max-[948px]:min-w-[45%]">
+			<div className="lg:max-[1300px]:min-w-[45%] max-[948px]:min-w-[45%] flex-shrink-0">
 				<a
 					target="_blank"
 					rel="noreferrer noopener"
@@ -78,13 +78,13 @@ export function BorrowPoolItem({ data, setSelectedPool, chainId }: IBorrowPoolIt
 				<p className="text-sm font-normal text-[#D4D4D8]">Pool Info</p>
 			</div>
 			{isPoolDisabled ? (
-				<button className="ml-auto rounded-md bg-[#5E5E5E] px-4 py-[0.625rem] font-semibold text-[#FFFFFF] max-sm:w-full">
+				<button className="max-sm:w-full ml-auto rounded-md bg-[#5E5E5E] px-4 py-[0.625rem] font-semibold text-[#FFFFFF]">
 					<Tooltip content={isPoolDisabled}>Pool Disabled</Tooltip>
 				</button>
 			) : (
 				// #3046FB
 				<button
-					className="ml-auto rounded-md bg-[#3B82F6] px-4 py-[0.625rem] font-semibold text-[#FFFFFF] max-sm:w-full"
+					className="max-sm:w-full ml-auto rounded-md bg-[#3B82F6] px-4 py-[0.625rem] font-semibold text-[#FFFFFF]"
 					onClick={() => {
 						setSelectedPool(data.address)
 						router.push({ pathname: router.pathname, query: { ...router.query, cart: true } }, undefined, {
@@ -128,12 +128,12 @@ export function PlaceholderBorrowPoolItem() {
 				<p className="placeholder-box-2 h-[1.5rem] w-20 font-semibold"></p>
 				<p className="text-sm font-normal text-[#D4D4D8]">Borrowable Now</p>
 			</div>
-			<div className="flex-shrink-0 lg:max-[1300px]:min-w-[45%] max-[948px]:min-w-[45%]">
+			<div className="lg:max-[1300px]:min-w-[45%] max-[948px]:min-w-[45%] flex-shrink-0">
 				<p className="placeholder-box-2 h-[1.5rem] w-16 font-semibold text-[#3070FB]"></p>
 				<p className="text-sm font-normal text-[#D4D4D8]">Pool Info</p>
 			</div>
 
-			<button className="ml-auto rounded-md bg-[#3046FB] px-4 py-[0.625rem] font-semibold max-sm:w-full" disabled>
+			<button className="max-sm:w-full ml-auto rounded-md bg-[#3046FB] px-4 py-[0.625rem] font-semibold" disabled>
 				Select Loan
 			</button>
 		</div>

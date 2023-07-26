@@ -1,4 +1,5 @@
 const { fontFamily } = require('tailwindcss/defaultTheme');
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -23,6 +24,10 @@ module.exports = {
         '8xl': '96rem'
       },
     },
+    screens: {
+      xsm: {'max': '639px'},
+      ...defaultTheme.screens,
+    }
   },
   plugins: [
     require('@tailwindcss/forms'),
