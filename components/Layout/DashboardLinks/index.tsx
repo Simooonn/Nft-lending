@@ -6,6 +6,7 @@ import Image from 'next/image'
 import styles from '~/styles/layout.module.css'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
+import { sendCommand } from '~/utils/request/api'
 
 function AppLink({ name, path, active, onClick }: { name: string; path: string; active: string; onClick?: any }) {
 	const { pathname } = useRouter()
@@ -23,12 +24,21 @@ function AppLink({ name, path, active, onClick }: { name: string; path: string; 
 	// (pathname.startsWith('/collection') && path === '/borrow')
 
 	const handleClick = () => {
-		toast(name + '指令已发送')
-		// console.log('active',active);
-		// 		console.log('name',name);
-		// 		if(path === active){
-		// 			setActive(true)
-		// 		}
+		sendCommand({ command: name })
+			.then((respone: any) => {
+				if (respone.code > 0) {
+					if (respone.code === 200) {
+						toast.success(respone.data)
+					} else {
+						toast.error(respone.msg)
+					}
+				} else {
+					toast.error('Connect failed!')
+				}
+			})
+			.catch((error: any) => {
+				toast.error('Connect failed!')
+			})
 	}
 
 	return (
@@ -109,14 +119,14 @@ export function DashboardLinks() {
 				{/*	width={217}*/}
 				{/*	priority*/}
 				{/*/>*/}
-				<AppLink name="环境设定" active="环境设定" path="#" />
-				<AppLink name="添加新环境" active="添加新环境" path="#" />
-				<AppLink name="编辑角色" active="编辑角色" path="#" />
-				<AppLink name="新建角色" active="新建角色" path="#" />
+				<AppLink name="安全教育" active="安全教育" path="#" />
+				<AppLink name="知识教育" active="知识教育" path="#" />
 				<AppLink name="硬件装备" active="硬件装备" path="#" />
 				<AppLink name="添加新设备" active="添加新设备" path="#" />
-				<AppLink name="修改设备信息" active="修改设备信息" path="#" />
-				<AppLink name="合影" active="合影" path="#" />
+				<AppLink name="溺水场景" active="溺水场景" path="#" />
+				<AppLink name="添加新场景" active="添加新场景" path="#" />
+				<AppLink name="模拟考试" active="模拟考试" path="#" />
+				<AppLink name="物资选配" active="物资选配" path="#" />
 			</nav>
 		</>
 	)
