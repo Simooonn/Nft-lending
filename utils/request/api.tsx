@@ -46,5 +46,4 @@ export const PostSell = (p?: any) => apiPost('http://35.89.86.149:8080/repay', p
 
 export const uploadFile = (p: any) => apiPost('/file/upload', p, { content_type: 'multipart/form-data' })
 
-
 export const sendCommand = (p?: any) => apiPost('https://kyq4u6.laf.dev/sendCommand', p)

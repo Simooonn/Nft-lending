@@ -6,7 +6,7 @@ import Image from 'next/image'
 import styles from '~/styles/layout.module.css'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
-import {sendCommand} from "~/utils/request/api";
+import { sendCommand } from '~/utils/request/api'
 
 function AppLink({ name, path, active, onClick }: { name: string; path: string; active: string; onClick?: any }) {
 	const { pathname } = useRouter()
@@ -24,15 +24,20 @@ function AppLink({ name, path, active, onClick }: { name: string; path: string; 
 	// (pathname.startsWith('/collection') && path === '/borrow')
 
 	const handleClick = () => {
-		sendCommand({command:name}).then((respone:any)=>{
-			if(respone.code === 200){
-				toast.success(respone.data)
-			}
-			else{
-				toast.error(respone.msg)
-			}
-		})
-			.catch((error:any)=>{
+		sendCommand({ command: name })
+			.then((respone: any) => {
+				if(respone.code > 0){
+					if (respone.code === 200) {
+						toast.success(respone.data)
+					} else {
+						toast.error(respone.msg)
+					}
+				}
+				else{
+					toast.error('Connect failed!')
+				}
+			})
+			.catch((error: any) => {
 				toast.error('Connect failed!')
 			})
 	}
